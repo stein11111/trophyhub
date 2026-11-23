@@ -200,7 +200,8 @@ function render(){
   const p=D.profile||{}, g=D.gta;
   $("#demo").hidden=!D.demo;
   $("#name").textContent=p.onlineId||"Spieler";
-  $("#avatar").innerHTML=p.avatar?`<img src="${esc(p.avatar)}" alt="">`:esc((p.onlineId||"V")[0].toUpperCase());
+  const ini=esc((p.onlineId||"V")[0].toUpperCase());
+  $("#avatar").innerHTML=p.avatar?`<img src="${esc(p.avatar.replace(/^http:/,"https:"))}" alt="" onerror="this.parentNode.textContent='${ini}'">`:ini;
   $("#level").textContent=p.level??"–";
   $("#updated").textContent=D.updated?"aktualisiert "+ago(D.updated):"";
   $("#foot").textContent=D.demo?"Demo-Daten":"Daten vom PlayStation Network · aktualisiert sich automatisch";
