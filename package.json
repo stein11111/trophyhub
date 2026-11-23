@@ -1,0 +1,16 @@
+{
+  "name": "trophyhub",
+  "version": "1.0.0",
+  "description": "Vice Tracker – GTA VI Trophäen-Fortschritt",
+  "scripts": {
+    "fetch": "node scripts/fetch.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "psn-api": "^2.18.1"
+  },
+  "private": true,
+  "type": "module"
+}
