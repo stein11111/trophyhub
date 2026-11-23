@@ -1,4 +1,5 @@
 // Holt Trophäen + Spielzeit vom PlayStation Network und schreibt docs/data.json
+// Stand: 2026-11-23
 // Läuft in GitHub Actions. Braucht das Secret PSN_NPSSO.
 import fs from "node:fs";
 import {
