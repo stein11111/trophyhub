@@ -19,7 +19,7 @@ jobs:
       - run: npm ci
       - name: Trophäen holen
         env:
-          PSN_NPSSO: ${{ secrets.PSN_NPSSO }}
+          PSN_NPSSO: ${{ secrets.PSN_NPSSO || secrets.PSN }}
         run: |
           set +e
           node scripts/fetch.mjs > /tmp/out.txt 2>&1
