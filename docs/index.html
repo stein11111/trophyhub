@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Vice Tracker">
 <meta name="theme-color" content="#0b0614">
@@ -12,99 +13,100 @@
 <title>Vice Tracker</title>
 <style>
 :root{
-  --bg:#0b0614; --card:#160d24; --card2:#1d1230; --line:#2c1d44;
+  --bg:#0b0614; --card:#160d24; --card2:#1f1333; --line:#2c1d44;
   --txt:#f6eefe; --mute:#a593c2;
-  --pink:#ff2e88; --orange:#ff9a3c; --teal:#20e3d2; --purple:#9b5cff;
-  --plat:#cfe3ff; --gold:#ffcc4d; --silver:#c9cfd8; --bronze:#d08a55;
+  --pink:#ff2e88; --orange:#ff9a3c; --teal:#20e3d2; --purple:#9b5cff; --blue:#4da3ff;
   --sun:linear-gradient(135deg,#ff2e88 0%,#ff6a5c 50%,#ffb347 100%);
+  --jason:linear-gradient(135deg,#4da3ff,#20e3d2);
+  --lucia:linear-gradient(135deg,#ff2e88,#9b5cff);
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
-html,body{margin:0;background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,system-ui,sans-serif}
-body{padding-bottom:calc(84px + env(safe-area-inset-bottom));min-height:100vh;overflow-x:hidden}
-.glow{position:fixed;inset:-30% -30% auto -30%;height:70vh;background:radial-gradient(closest-side,rgba(255,46,136,.28),transparent),radial-gradient(closest-side at 80% 40%,rgba(32,227,210,.18),transparent);filter:blur(30px);pointer-events:none;z-index:0}
-main{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:calc(14px + env(safe-area-inset-top)) 16px 16px}
-header{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.avatar{width:44px;height:44px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-weight:800;overflow:hidden;flex:none}
-.avatar img{width:100%;height:100%;object-fit:cover}
+html,body{margin:0;background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display",Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+body{padding-bottom:calc(86px + env(safe-area-inset-bottom));min-height:100vh;overflow-x:hidden}
+button{font:inherit;color:inherit;cursor:pointer}
+.glow{position:fixed;inset:-30% -30% auto -30%;height:70vh;background:radial-gradient(closest-side,rgba(255,46,136,.26),transparent),radial-gradient(closest-side at 80% 40%,rgba(32,227,210,.16),transparent);filter:blur(30px);pointer-events:none;z-index:0}
+main{position:relative;z-index:1;max-width:560px;margin:0 auto;padding:calc(12px + env(safe-area-inset-top)) 16px 16px}
+header{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.avatar{position:relative;width:46px;height:46px;border-radius:50%;background:var(--sun);display:grid;place-items:center;font-weight:800;flex:none}
+.avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.avatar .on{position:absolute;right:-1px;bottom:-1px;width:14px;height:14px;border-radius:50%;background:#555;border:3px solid var(--bg)}
+.avatar .on.yes{background:#3ddc84;box-shadow:0 0 10px #3ddc84}
 .who{flex:1;min-width:0}
 .who b{display:block;font-size:17px}
-.who span{font-size:12px;color:var(--mute)}
-.lvl{font-size:12px;padding:6px 10px;border-radius:99px;background:var(--card2);border:1px solid var(--line);white-space:nowrap}
-.lvl b{color:var(--teal)}
+.who span{font-size:12px;color:var(--mute);display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.iconbtn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--card);display:grid;place-items:center;flex:none}
+.iconbtn svg{width:19px;height:19px}
 .demo{background:rgba(255,154,60,.12);border:1px solid rgba(255,154,60,.4);color:#ffd2a6;border-radius:14px;padding:10px 12px;font-size:13px;margin-bottom:14px}
 .view{display:none;animation:in .35s ease}
 .view.on{display:block}
 @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.hero{position:relative;border-radius:26px;padding:22px 20px 20px;overflow:hidden;background:linear-gradient(180deg,#2a0f3d 0%,#150a25 70%);border:1px solid var(--line)}
-.hero:before{content:"";position:absolute;left:50%;bottom:-120px;width:340px;height:340px;transform:translateX(-50%);border-radius:50%;background:var(--sun);opacity:.22;filter:blur(8px);
+.hero{position:relative;border-radius:26px;padding:20px;overflow:hidden;background:linear-gradient(180deg,#2a0f3d 0%,#150a25 75%);border:1px solid var(--line)}
+.hero:before{content:"";position:absolute;right:-90px;bottom:-140px;width:330px;height:330px;border-radius:50%;background:var(--sun);opacity:.2;
   -webkit-mask:repeating-linear-gradient(180deg,#000 0 14px,transparent 14px 20px);mask:repeating-linear-gradient(180deg,#000 0 14px,transparent 14px 20px)}
-.hero h1{margin:0;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:600}
-.title{font-size:30px;font-weight:900;margin:4px 0 16px;background:var(--sun);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.02em}
-.ringwrap{position:relative;display:flex;align-items:center;gap:18px}
-.ring{width:136px;height:136px;flex:none}
-.ringwrap{gap:14px}
-.ring .pct{font-size:38px;font-weight:900;fill:var(--txt)}
-.ring .sub{font-size:11px;fill:var(--mute);letter-spacing:.12em}
-.tcount{display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1}
-.tc{background:rgba(0,0,0,.3);border:1px solid var(--line);border-radius:14px;padding:8px 9px;white-space:nowrap;min-width:0}
-.tc i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;vertical-align:2px}
-.tc b{font-size:17px}
-.tc small{font-size:11px}
-.tc span{display:block;font-size:11px;color:var(--mute)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px}
-.stat b{display:block;font-size:20px;font-weight:800}
+.hero>*{position:relative}
+.kicker{margin:0;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-weight:600}
+.big{font-size:30px;font-weight:900;margin:4px 0 2px;background:var(--sun);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-.02em;line-height:1.1}
+.sub{color:var(--mute);font-size:13px}
+.rings{display:flex;gap:10px;margin-top:16px}
+.ringbox{flex:1;background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:20px;padding:12px;display:flex;align-items:center;gap:10px}
+.ringbox svg{width:60px;height:60px;flex:none}
+.ringbox b{display:block;font-size:22px;font-weight:900}
+.ringbox span{font-size:11px;color:var(--mute)}
+.nextm{margin-top:12px;background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:16px;padding:12px;display:flex;gap:10px;align-items:center;cursor:pointer}
+.pill{font-size:10px;font-weight:800;padding:3px 8px;border-radius:99px;background:var(--card2);color:var(--mute);flex:none}
+.nextm b{font-size:15px}
+.nextm small{display:block;font-size:11px;color:var(--mute);margin-bottom:2px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:14px 0}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;min-width:0}
+.stat b{display:block;font-size:19px;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .stat span{font-size:11px;color:var(--mute)}
-h2{font-size:15px;margin:22px 4px 10px;display:flex;justify-content:space-between;align-items:baseline}
-h2 small{font-weight:500;color:var(--mute);font-size:12px}
+h2{font-size:15px;margin:24px 4px 10px;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+h2 small{font-weight:500;color:var(--mute);font-size:12px;text-align:right}
 .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:14px}
-.chart{width:100%;height:150px;display:block}
-.tro{display:flex;gap:12px;align-items:center;padding:10px;border-radius:16px;background:var(--card);border:1px solid var(--line);margin-bottom:8px}
-.tro img,.tro .ph{width:52px;height:52px;border-radius:12px;flex:none;object-fit:cover;background:var(--card2)}
-.tro.off img{filter:grayscale(1) brightness(.55)}
+.chart{width:100%;height:140px;display:block}
+.prog{display:flex;gap:12px;align-items:center}
+.prog .em{font-size:30px}
+.prog b{font-size:16px}
+.prog p{margin:2px 0 0;color:var(--mute);font-size:13px;line-height:1.4}
+.tro{display:flex;gap:12px;align-items:center;padding:10px;border-radius:16px;background:var(--card);border:1px solid var(--line);margin-bottom:8px;cursor:pointer}
+.tro img,.tro .ph{width:50px;height:50px;border-radius:12px;flex:none;object-fit:cover;background:var(--card2)}
+.tro.off img{filter:grayscale(1) brightness(.5)}
 .tro .ph{display:grid;place-items:center;font-size:22px}
 .tro .t{flex:1;min-width:0}
 .tro .t b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tro .t .ds{display:block;font-size:12px;color:var(--mute);line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .tro .m{text-align:right;font-size:11px;color:var(--mute);flex:none}
-.dot{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px}
-.rare{display:inline-block;margin-top:4px;padding:2px 7px;border-radius:99px;font-size:10px;font-weight:700;background:var(--card2)}
-.check{color:var(--teal);font-weight:800}
+.dot{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:0}
+.rare{display:inline-block;margin-top:4px;padding:2px 7px;border-radius:99px;font-size:10px;font-weight:700;background:var(--card2);color:var(--mute)}
+.rare.r1{color:#ffcc4d}.rare.r2{color:#ff7ab4}
+.check{color:var(--teal);font-weight:800;font-size:15px}
 .chips{display:flex;gap:8px;overflow-x:auto;margin:0 -16px 12px;padding:0 16px;scrollbar-width:none}
-.chip{border:1px solid var(--line);background:var(--card);color:var(--txt);border-radius:99px;padding:8px 14px;font-size:13px;white-space:nowrap;font-weight:600}
+.chips::-webkit-scrollbar,.hscroll::-webkit-scrollbar{display:none}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:99px;padding:8px 14px;font-size:13px;white-space:nowrap;font-weight:600}
 .chip.on{background:var(--sun);border-color:transparent;color:#1a0610}
-input.search{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--txt);font-size:15px;margin-bottom:10px;outline:none}
+input.search{width:100%;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:var(--card);color:var(--txt);font-size:16px;margin-bottom:10px;outline:none}
+.cats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:6px}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:11px;text-align:left}
+.cat.on{border-color:var(--pink);box-shadow:0 0 0 1px var(--pink)}
+.cat .ce{font-size:18px}
+.cat b{display:block;font-size:13px;margin-top:4px}
+.cat small{font-size:11px;color:var(--mute)}
+.bar{height:6px;border-radius:9px;background:var(--card2);margin-top:7px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--sun);border-radius:9px}
+.bar.teal i{background:linear-gradient(90deg,#20e3d2,#4da3ff)}
 .game{display:flex;gap:12px;align-items:center;padding:10px;border-radius:16px;background:var(--card);border:1px solid var(--line);margin-bottom:8px}
-.game img,.game .ph{width:56px;height:56px;border-radius:12px;object-fit:cover;flex:none;background:var(--card2)}
+.game img,.game .ph{width:54px;height:54px;border-radius:12px;object-fit:cover;flex:none;background:var(--card2)}
 .game .t{flex:1;min-width:0}
 .game b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bar{height:6px;border-radius:9px;background:var(--card2);margin-top:8px;overflow:hidden}
-.bar i{display:block;height:100%;background:var(--sun);border-radius:9px}
 .game small{font-size:11px;color:var(--mute)}
 .game .p{font-weight:800;font-size:15px}
-nav{position:fixed;bottom:0;left:0;right:0;z-index:5;display:flex;justify-content:center;gap:6px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(11,6,20,.82);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-top:1px solid var(--line)}
-nav button{flex:1;max-width:170px;background:none;border:0;color:var(--mute);font-size:11px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px;border-radius:14px}
-nav button svg{width:24px;height:24px}
-nav button.on{color:var(--txt);background:var(--card2)}
-nav button.on svg{stroke:var(--pink)}
-.foot{text-align:center;color:var(--mute);font-size:11px;margin:18px 0 6px}
-.empty{color:var(--mute);text-align:center;padding:30px 10px;font-size:14px}
-.next{display:flex;gap:10px;overflow-x:auto;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none}
-.nx{flex:none;width:150px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px}
-.nx img,.nx .ph{width:44px;height:44px;border-radius:10px;object-fit:cover;background:var(--card2);display:grid;place-items:center;filter:grayscale(.6)}
+.hscroll{display:flex;gap:10px;overflow-x:auto;margin:0 -16px;padding:0 16px 4px;scrollbar-width:none}
+.nx{flex:none;width:158px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px;text-align:left}
+.nx img,.nx .ph{width:44px;height:44px;border-radius:10px;object-fit:cover;background:var(--card2);display:grid;place-items:center;filter:grayscale(.5)}
 .nx b{display:block;font-size:13px;margin-top:8px;line-height:1.25;height:33px;overflow:hidden}
+.nx p{margin:4px 0 6px;font-size:11px;color:var(--mute);line-height:1.3;height:43px;overflow:hidden}
 .nx span{font-size:11px;color:var(--teal);font-weight:700}
-.sheet{position:fixed;inset:0;z-index:9;background:rgba(0,0,0,.6);display:none;align-items:flex-end;justify-content:center}
-.sheet.on{display:flex}
-.sheet .in{width:100%;max-width:560px;background:var(--card);border-radius:26px 26px 0 0;padding:22px 20px calc(26px + env(safe-area-inset-bottom));border-top:1px solid var(--line);animation:up .28s ease}
-@keyframes up{from{transform:translateY(100%)}to{transform:none}}
-.sheet img{width:96px;height:96px;border-radius:18px;display:block;margin:0 auto 12px}
-.sheet h3{text-align:center;margin:0 0 6px}
-.sheet p{text-align:center;color:var(--mute);margin:0 0 14px;font-size:14px;line-height:1.45}
-.sheet .row{display:flex;justify-content:space-around;font-size:13px}
-.sheet .row div{text-align:center}
-.sheet .row b{display:block;font-size:16px}
-
+.feed .day{font-size:12px;color:var(--mute);font-weight:700;margin:14px 4px 6px;text-transform:uppercase;letter-spacing:.08em}
 .chap{background:var(--card);border:1px solid var(--line);border-radius:20px;margin-top:12px;overflow:hidden}
 .chap.cur{border-color:var(--pink);box-shadow:0 0 0 1px var(--pink),0 10px 30px -12px rgba(255,46,136,.5)}
 .chead{display:flex;align-items:center;gap:12px;padding:14px;cursor:pointer}
@@ -120,13 +122,72 @@ nav button.on svg{stroke:var(--pink)}
 .b-next{background:var(--card2);color:var(--mute)}
 .mlist{display:none;padding:0 14px 14px}
 .chap.open .mlist{display:block}
-.mi{display:flex;align-items:center;gap:10px;padding:9px 4px;border-top:1px solid var(--line);font-size:14px}
+.mi{display:flex;align-items:center;gap:10px;padding:9px 6px;border-top:1px solid var(--line);font-size:14px}
+.mi[data-tick]{cursor:pointer}
 .mi .ck{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-size:12px;font-weight:900}
 .mi.ok .ck{background:var(--teal);border-color:var(--teal);color:#05201d}
+.mi.nextup{background:rgba(255,46,136,.1);border-radius:10px}
+.mi.nextup .ck{border-color:var(--pink)}
 .mi.ok span.n{color:var(--mute)}
-.mi .tag{margin-left:auto;font-size:10px;color:var(--mute);border:1px solid var(--line);border-radius:6px;padding:1px 5px;flex:none}
-.mi .tr{margin-left:auto;font-size:11px;flex:none}
+.mi .tags{margin-left:auto;display:flex;gap:5px;align-items:center;flex:none}
+.tag{font-size:10px;font-weight:700;border-radius:6px;padding:2px 6px;flex:none}
+.tag.J{background:rgba(77,163,255,.16);color:#8cc4ff}
+.tag.L{background:rgba(255,46,136,.16);color:#ff8cbf}
+.tag.H{background:rgba(255,204,77,.15);color:#ffcc4d}
 .spoil{width:100%;margin-top:6px;padding:12px;border-radius:14px;border:1px dashed var(--line);background:none;color:var(--mute);font-size:13px;font-weight:600}
+.milestones{display:flex;gap:6px;margin-top:14px}
+.milestones div{flex:1;height:8px;border-radius:9px;background:var(--card2)}
+.milestones div.d{background:linear-gradient(90deg,#20e3d2,#1a9e94)}
+.milestones div.c{background:var(--sun)}
+.hero.char{padding:18px}
+.hero.char.j{background:linear-gradient(160deg,#0f2a47 0%,#120b24 80%)}
+.hero.char.l{background:linear-gradient(160deg,#3d0f33 0%,#150a25 80%)}
+.hero.char:before{display:none}
+.ch-top{display:flex;gap:14px;align-items:center}
+.mono{width:64px;height:64px;border-radius:20px;display:grid;place-items:center;font-size:26px;font-weight:900;color:#0b0614;flex:none}
+.j .mono{background:var(--jason)}.l .mono{background:var(--lucia);color:#fff}
+.ch-top h3{margin:0;font-size:22px}
+.ch-top small{color:var(--mute);font-size:12px}
+.bio{color:#d9cdea;font-size:13.5px;line-height:1.5;margin:12px 0}
+.cstats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cstats div{background:rgba(0,0,0,.28);border:1px solid var(--line);border-radius:14px;padding:10px}
+.cstats b{display:block;font-size:17px}
+.cstats span{font-size:11px;color:var(--mute)}
+.vs{display:flex;align-items:center;gap:10px}
+.vs .side{flex:1}
+.vs .side b{font-size:22px}
+.vs .side small{display:block;font-size:11px;color:var(--mute)}
+.split{height:12px;border-radius:9px;overflow:hidden;display:flex;margin-top:12px;background:var(--card2)}
+.split i{display:block;height:100%}
+.npc{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:14px;background:var(--card);border:1px solid var(--line);margin-bottom:8px;cursor:pointer}
+.npc .ini{width:38px;height:38px;border-radius:12px;background:var(--card2);display:grid;place-items:center;font-weight:800;flex:none}
+.npc.ok .ini{background:linear-gradient(135deg,#20e3d2,#1a9e94);color:#05201d}
+.npc .t{flex:1}
+.npc b{font-size:14px;display:block}
+.npc small{font-size:12px;color:var(--mute)}
+nav{position:fixed;bottom:0;left:0;right:0;z-index:5;display:flex;justify-content:center;gap:2px;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:rgba(11,6,20,.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-top:1px solid var(--line)}
+nav button{flex:1;max-width:110px;background:none;border:0;color:var(--mute);font-size:10.5px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:3px;padding:6px 2px;border-radius:14px}
+nav button svg{width:23px;height:23px}
+nav button.on{color:var(--txt);background:var(--card2)}
+nav button.on svg{stroke:var(--pink)}
+.foot{text-align:center;color:var(--mute);font-size:11px;margin:18px 0 6px;line-height:1.5}
+.empty{color:var(--mute);text-align:center;padding:24px 10px;font-size:14px}
+.btn{width:100%;padding:14px;border-radius:16px;border:0;background:var(--sun);color:#1a0610;font-weight:800;font-size:15px;margin-top:14px}
+.btn.ghost{background:var(--card2);color:var(--txt);border:1px solid var(--line)}
+.sheet{position:fixed;inset:0;z-index:9;background:rgba(0,0,0,.6);display:none;align-items:flex-end;justify-content:center}
+.sheet.on{display:flex}
+.sheet .in{width:100%;max-width:560px;max-height:88vh;overflow:auto;background:var(--card);border-radius:26px 26px 0 0;padding:22px 20px calc(26px + env(safe-area-inset-bottom));border-top:1px solid var(--line);animation:up .28s ease}
+@keyframes up{from{transform:translateY(100%)}to{transform:none}}
+.sheet .ico{width:96px;height:96px;border-radius:18px;display:block;margin:0 auto 12px}
+.sheet h3{text-align:center;margin:0 0 4px}
+.sheet .en{text-align:center;color:var(--mute);font-size:12px;margin-bottom:10px}
+.sheet p{text-align:center;color:#d9cdea;margin:0 0 14px;font-size:14px;line-height:1.5}
+.sheet .tip{background:rgba(32,227,210,.08);border:1px solid rgba(32,227,210,.25);border-radius:14px;padding:12px;font-size:13px;line-height:1.5;color:#bff5ef;margin-bottom:14px}
+.sheet .row{display:flex;justify-content:space-around;font-size:12px;color:var(--mute)}
+.sheet .row div{text-align:center}
+.sheet .row b{display:block;font-size:15px;color:var(--txt)}
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--card2);border:1px solid var(--line);padding:10px 16px;border-radius:99px;font-size:13px;z-index:20;opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap}
+.toast.on{opacity:1}
 </style>
 </head>
 <body>
@@ -134,246 +195,438 @@ nav button.on svg{stroke:var(--pink)}
 <main>
   <header>
     <div class="avatar" id="avatar">V</div>
-    <div class="who"><b id="name">Spieler</b><span id="updated">lädt …</span></div>
-    <div class="lvl">Level <b id="level">–</b></div>
+    <div class="who"><b id="name">Spieler</b><span id="status">lädt …</span></div>
+    <button class="iconbtn" id="share" aria-label="Fortschritt teilen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></svg></button>
   </header>
-  <div class="demo" id="demo" hidden>Demo-Ansicht: Sobald dein PlayStation-Konto verbunden ist, siehst du hier deine echten Trophäen.</div>
+  <div class="demo" id="demo" hidden>Demo-Ansicht: Sobald dein PlayStation-Konto verbunden ist, siehst du hier deine echten Daten.</div>
 
-  <!-- GTA 6 -->
+  <!-- START -->
   <section class="view on" id="v-home">
     <div class="hero">
-      <h1>Dein Fortschritt</h1>
-      <div class="title">GTA VI</div>
-      <div class="ringwrap">
-        <svg class="ring" viewBox="0 0 150 150">
-          <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff2e88"/><stop offset=".55" stop-color="#ff6a5c"/><stop offset="1" stop-color="#ffb347"/></linearGradient></defs>
-          <circle cx="75" cy="75" r="62" fill="none" stroke="#2c1d44" stroke-width="12"/>
-          <circle id="arc" cx="75" cy="75" r="62" fill="none" stroke="url(#g)" stroke-width="12" stroke-linecap="round" transform="rotate(-90 75 75)" stroke-dasharray="389.6" stroke-dashoffset="389.6" style="transition:stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1)"/>
-          <text x="75" y="80" text-anchor="middle" class="pct" id="pct">0%</text>
-          <text x="75" y="100" text-anchor="middle" class="sub">TROPHÄEN</text>
-        </svg>
-        <div class="tcount" id="tcount"></div>
+      <p class="kicker">GTA VI · Dein Stand</p>
+      <div class="big" id="h-chap">Kapitel –</div>
+      <div class="sub" id="h-chapname"></div>
+      <div class="milestones" id="h-miles"></div>
+      <div class="rings">
+        <div class="ringbox"><svg viewBox="0 0 62 62"><circle cx="31" cy="31" r="25" fill="none" stroke="#2c1d44" stroke-width="7"/><circle id="r-story" cx="31" cy="31" r="25" fill="none" stroke="#20e3d2" stroke-width="7" stroke-linecap="round" transform="rotate(-90 31 31)" stroke-dasharray="157.1" stroke-dashoffset="157.1" style="transition:stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1)"/></svg><div><b id="h-story">0%</b><span>Story</span></div></div>
+        <div class="ringbox"><svg viewBox="0 0 62 62"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff2e88"/><stop offset="1" stop-color="#ffb347"/></linearGradient></defs><circle cx="31" cy="31" r="25" fill="none" stroke="#2c1d44" stroke-width="7"/><circle id="r-tro" cx="31" cy="31" r="25" fill="none" stroke="url(#g)" stroke-width="7" stroke-linecap="round" transform="rotate(-90 31 31)" stroke-dasharray="157.1" stroke-dashoffset="157.1" style="transition:stroke-dashoffset 1.2s cubic-bezier(.2,.8,.2,1)"/></svg><div><b id="h-tro">0%</b><span>Trophäen</span></div></div>
       </div>
+      <div class="nextm" id="h-next"></div>
     </div>
-    <div class="stats">
-      <div class="stat"><b id="s-earned">–</b><span>geschafft</span></div>
+
+    <div class="grid">
       <div class="stat"><b id="s-time">–</b><span>gespielt</span></div>
+      <div class="stat"><b id="s-avg">–</b><span>Ø pro Tag</span></div>
+      <div class="stat"><b id="s-days">–</b><span>Tage dabei</span></div>
+      <div class="stat"><b id="s-earned">–</b><span>Trophäen</span></div>
       <div class="stat"><b id="s-week">–</b><span>diese Woche</span></div>
+      <div class="stat"><b id="s-rare">–</b><span>seltenste</span></div>
     </div>
-    <h2>Als Nächstes holen <small>am häufigsten geschafft</small></h2>
-    <div class="next" id="next"></div>
-    <h2>Verlauf <small id="histinfo"></small></h2>
-    <div class="card"><svg class="chart" id="chart" viewBox="0 0 320 150" preserveAspectRatio="none"></svg></div>
-    <h2>Zuletzt freigeschaltet</h2>
-    <div id="recent"></div>
+
+    <div class="card prog" id="forecast"></div>
+
+    <h2>Spielzeit pro Tag <small id="pt-info"></small></h2>
+    <div class="card"><svg class="chart" id="pt-chart" viewBox="0 0 320 140" preserveAspectRatio="none"></svg></div>
+
+    <h2>Als Nächstes holen <small>leicht &amp; nicht versteckt</small></h2>
+    <div class="hscroll" id="next"></div>
+
+    <h2>Trophäen-Tagebuch</h2>
+    <div class="feed" id="feed"></div>
   </section>
 
-
-  <!-- Story -->
+  <!-- STORY -->
   <section class="view" id="v-story">
-    <div class="hero" style="padding-bottom:18px">
-      <h1>Story-Fortschritt</h1>
-      <div class="title" id="st-title" style="margin-bottom:6px">Kapitel –</div>
-      <div style="color:var(--mute);font-size:13px" id="st-sub"></div>
+    <div class="hero">
+      <p class="kicker">Story-Fortschritt</p>
+      <div class="big" id="st-title">Kapitel –</div>
+      <div class="sub" id="st-sub"></div>
       <div class="bar" style="height:10px;margin-top:14px"><i id="st-bar" style="width:0%;transition:width 1s"></i></div>
       <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--mute);margin-top:6px"><span id="st-count"></span><span id="st-pct"></span></div>
     </div>
     <div id="chapters"></div>
-    <div class="foot">Kapitel-Stand kommt automatisch aus deinen Trophäen. Missionen im aktuellen Kapitel kannst du antippen, um sie abzuhaken. Missionsliste laut Guides, sie kann leicht abweichen.</div>
+    <div class="foot">Kapitel-Stand kommt automatisch aus deinen Trophäen. Im aktuellen Kapitel kannst du Missionen antippen, um sie abzuhaken.<br>Missionsliste laut Guides – kann je nach Spielweg leicht abweichen.</div>
   </section>
 
-  <!-- Trophäen -->
+  <!-- DUO -->
+  <section class="view" id="v-duo">
+    <div class="card">
+      <div class="vs">
+        <div class="side"><b id="vs-j">0</b><small>Jason-Missionen</small></div>
+        <div style="font-weight:900;color:var(--mute)">VS</div>
+        <div class="side" style="text-align:right"><b id="vs-l">0</b><small>Lucia-Missionen</small></div>
+      </div>
+      <div class="split" id="vs-split"></div>
+      <div class="sub" id="vs-txt" style="margin-top:10px;font-size:12px"></div>
+    </div>
+    <div id="chars"></div>
+    <h2>Gemeinsam unterwegs <small>Duo-Trophäen</small></h2>
+    <div id="duo-tro"></div>
+    <h2>Leute in Leonida <small>Charakter-Storys</small></h2>
+    <div id="npcs"></div>
+  </section>
+
+  <!-- TROPHÄEN -->
   <section class="view" id="v-tro">
-    <h2 style="margin-top:4px">Alle GTA-VI-Trophäen <small id="trocount"></small></h2>
+    <h2 style="margin-top:4px">Trophäen nach Bereich <small id="trocount"></small></h2>
+    <div class="cats" id="cats"></div>
+    <h2>Liste <small id="listinfo"></small></h2>
     <input class="search" id="q" placeholder="Trophäe suchen …" autocomplete="off">
     <div class="chips" id="chips"></div>
     <div id="list"></div>
   </section>
 
-  <!-- Spiele -->
-  <section class="view" id="v-games">
-    <h2 style="margin-top:4px">Alle Spiele <small id="gcount"></small></h2>
+  <!-- MEHR -->
+  <section class="view" id="v-more">
+    <div class="hero" style="padding:18px">
+      <p class="kicker">PlayStation-Profil</p>
+      <div class="big" id="p-level">Level –</div>
+      <div class="bar teal" style="height:8px;margin-top:10px"><i id="p-lvbar" style="width:0%"></i></div>
+      <div class="sub" id="p-lvtxt" style="margin-top:6px;font-size:12px"></div>
+      <div class="grid" style="margin-bottom:0" id="p-grid"></div>
+    </div>
+    <h2>Alle Spiele <small id="gcount"></small></h2>
+    <div class="chips" id="gchips"></div>
     <div id="games"></div>
+    <button class="btn ghost" id="reload">Jetzt neu laden</button>
+    <div class="foot" id="foot"></div>
   </section>
-
-  <div class="foot" id="foot"></div>
 </main>
 
 <nav>
-  <button class="on" data-v="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Fortschritt</button>
+  <button class="on" data-v="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Start</button>
   <button data-v="story"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M9 8h6M9 12h5"/></svg>Story</button>
+  <button data-v="duo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="3.5"/><circle cx="16.5" cy="9" r="3"/><path d="M2 20c0-3.3 2.7-6 6-6s6 2.7 6 6M14 14.5c.8-.3 1.6-.5 2.5-.5 3 0 5.5 2.5 5.5 5.5"/></svg>Duo</button>
   <button data-v="tro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>Trophäen</button>
-  <button data-v="games"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3M15 12h.01M18 13h.01"/></svg>Spiele</button>
+  <button data-v="more"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3M15 12h.01M18 13h.01"/></svg>Mehr</button>
 </nav>
 
 <div class="sheet" id="sheet"><div class="in" id="sheetin"></div></div>
+<div class="toast" id="toast"></div>
 
 <script>
-const COL = {platinum:"var(--plat)",gold:"var(--gold)",silver:"var(--silver)",bronze:"var(--bronze)"};
-const NAMES = {platinum:"Platin",gold:"Gold",silver:"Silber",bronze:"Bronze"};
-const $ = (s) => document.querySelector(s);
-const esc = (s) => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const fmtMin = (m) => !m ? "–" : m < 60 ? m + " Min" : Math.floor(m/60) + " Std";
-const fmtDate = (d) => d ? new Date(d).toLocaleDateString("de-DE",{day:"2-digit",month:"2-digit",year:"2-digit"}) : "";
-const ago = (d) => { const s=(Date.now()-new Date(d))/1000; if(s<3600) return "vor "+Math.max(1,Math.round(s/60))+" Min"; if(s<86400) return "vor "+Math.round(s/3600)+" Std"; return "vor "+Math.round(s/86400)+" Tagen"; };
-const rareTxt = (r) => r==null ? "" : r < 5 ? "Ultra selten" : r < 15 ? "Sehr selten" : r < 50 ? "Selten" : "Häufig";
-
-function demoData(){
-  const types=["bronze","bronze","bronze","silver","bronze","gold","bronze","silver","bronze","bronze","silver","gold","bronze","bronze","silver","bronze","bronze","gold","bronze","silver","bronze","bronze","silver","bronze","gold","bronze","silver","bronze","bronze","bronze","silver","bronze","bronze","gold","bronze","silver","bronze","bronze","bronze","platinum"];
-  const now=Date.now();
-  const trophies=types.map((t,i)=>{const earned=i<15;return{id:i,name:"Demo-Trophäe "+(i+1),detail:"Hier steht später die echte Beschreibung der Trophäe.",type:t,icon:null,earned,earnedAt:earned?new Date(now-(15-i)*86400000*0.8).toISOString():null,rarity:Math.round((90-i*2.1)*10)/10}});
-  const hist=[];for(let d=14;d>=0;d--){const e=Math.max(0,Math.round(15-d*1.0));hist.push({day:new Date(now-d*86400000).toISOString().slice(0,10),gtaEarned:e,gta:Math.round(e/40*100*0.8)})}
-  return {data:{updated:new Date().toISOString(),demo:true,profile:{onlineId:"Lukas",level:212},gta:{name:"Grand Theft Auto VI",progress:31,minutes:1630,trophies},games:[{name:"Grand Theft Auto VI",progress:31,minutes:1630,earned:{platinum:0,gold:2,silver:4,bronze:9}},{name:"Demo-Spiel 2",progress:64,minutes:2400,earned:{platinum:0,gold:3,silver:7,bronze:20}},{name:"Demo-Spiel 3",progress:100,minutes:5100,earned:{platinum:1,gold:6,silver:12,bronze:30}}]},hist};
-}
-
-async function load(){
-  try{
-    const [d,h]=await Promise.all([fetch("data.json?"+Date.now()).then(r=>{if(!r.ok)throw 0;return r.json()}),fetch("history.json?"+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[])]);
-    return {data:d,hist:h};
-  }catch{ return demoData(); }
-}
-
-
+const COL={platinum:"#cfe3ff",gold:"#ffcc4d",silver:"#c9cfd8",bronze:"#d08a55"};
+const NAMES={platinum:"Platin",gold:"Gold",silver:"Silber",bronze:"Bronze"};
+const CATS={story:{e:"📖",n:"Story"},chars:{e:"🧑‍🤝‍🧑",n:"Charaktere"},act:{e:"🏁",n:"Aktivitäten"},crime:{e:"💰",n:"Überfälle"},money:{e:"💵",n:"Geld"},explore:{e:"🗺️",n:"Erkunden & Sammeln"},secret:{e:"🤫",n:"Geheim"},plat:{e:"💎",n:"Platin"}};
+const TDE={
+ 0:["plat","Schalte alle anderen Trophäen frei – du bist eine Leonida-Legende.","Kommt automatisch, sobald du alle 54 anderen Trophäen hast. Es gibt keine Online-Trophäen."],
+ 1:["story","Schließe die Mission „Gone Fishing“ ab.","Story-Trophäe, kommt automatisch."],
+ 2:["story","Schließe Kapitel 1 ab.","Story-Trophäe, kann nicht verpasst werden."],
+ 3:["story","Schließe Kapitel 2 ab.","Story-Trophäe, kann nicht verpasst werden."],
+ 4:["story","Schließe Kapitel 3 ab.","Am Ende von Kapitel 3 steht der Cartel Heist."],
+ 5:["story","Schließe Kapitel 4 ab.","Kapitel 4 ist das längste – plan dir Zeit ein."],
+ 6:["story","Schließe die letzte Mission ab.","Gold-Trophäe für das Story-Ende."],
+ 7:["story","Schließe die Mission „Breakfast Run“ ab.","Kapitel 2, kommt automatisch."],
+ 8:["story","Schließe „The Cartel Heist“ ab.","Letzte Mission von Kapitel 3."],
+ 9:["story","Schließe die Mission „Child's Play“ ab.","Kapitel 4, kommt automatisch."],
+ 10:["story","Schließe die Mission „Headliners“ ab.","Kapitel 4, kommt automatisch."],
+ 11:["story","Schließe „VCIA Takedown“ ab.","Großer Heist in Kapitel 4."],
+ 12:["story","Schließe „Operation Savage Glory“ ab.","Kapitel 5, kommt automatisch."],
+ 13:["explore","Erreiche 100 % Spielfortschritt.","Im Pausemenü unter Fortschritt → Statistiken → 100 % siehst du genau, was noch fehlt. Alles, was du vorher erledigst, zählt schon mit."],
+ 14:["act","Schaffe 250 Stunts.","Unter Fortschritt → Aktivitäten → Stunts steht dein Zähler, die Karte zeigt alle Stunt-Spots. Flüge unter Brücken gehen am schnellsten."],
+ 15:["act","Probiere jede Art von Aktivität einmal aus.","Unter Fortschritt → Aktivitäten siehst du, welche Arten dir noch fehlen."],
+ 16:["act","Hol Gold in allen Schießstand-Herausforderungen.","Waffen vorher upgraden und Combat Focus nutzen, wo es geht."],
+ 17:["act","Gewinne an jedem Ort ein Top-Fun-Drohnenrennen.","Die Orte erscheinen auf der Karte, sobald du sie entdeckt hast."],
+ 18:["act","Gewinne 20 verschiedene Rennen.","Ein schnelles Auto aus deiner Garage macht es deutlich leichter."],
+ 19:["act","Schlag Cal in einer Angel-Challenge.","Cal an seinem Angelplatz herausfordern."],
+ 20:["act","Spiel ein Arcade-Spiel bis zum Ende durch.","Arcade-Automaten gibt es in Bars und Spielhallen."],
+ 21:["chars","Schließe die letzte Mission für Andy ab.","Andys Missionsreihe auf der Karte bis zum Ende spielen."],
+ 22:["chars","Schließe die letzte Mission für Kenton ab.","Kentons Missionsreihe bis zum Ende spielen."],
+ 23:["chars","Schließe die letzte Mission für Billy ab.","Billys Missionsreihe bis zum Ende spielen."],
+ 24:["chars","Schließe 8 Missionsreihen für „Fremde & Freaks“ in ganz Leonida ab.","Achte auf die Fragezeichen-Symbole auf der Karte."],
+ 25:["chars","Schließe die letzte Mission für Randy ab.","Randys Missionsreihe bis zum Ende spielen."],
+ 26:["chars","Schließe die letzte Mission für Tyrone ab.","Tyrones Missionsreihe bis zum Ende spielen."],
+ 27:["explore","Meditiere an jedem Meditationsplatz in Leonida.","Die Plätze liegen meist an ruhigen Aussichtspunkten."],
+ 28:["chars","Erlege ein besonderes Tier für Bret.","Gehört zu Brets Jagd-Missionen."],
+ 29:["explore","Vervollständige 3 Sammelkarten-Sets.","Karten sind über die ganze Karte verteilt."],
+ 30:["explore","Mach an 100 Orten „WAiNK It“.","Nebenbei beim Erkunden erledigen."],
+ 31:["act","Schließe 50 Herausforderungen ab.","Die Liste findest du im Pausemenü."],
+ 32:["crime","Werde mit deinem Partner ein 4-Sterne-Fahndungslevel los.","Zu zweit unterwegs sein, 4 Sterne holen und entkommen."],
+ 33:["crime","Überfalle mit deinem Partner 3 Läden direkt hintereinander.","Kleine Läden nah beieinander aussuchen."],
+ 34:["explore","Entdecke 100 Fahrzeuge.","Neue Fahrzeuge zählen beim ersten Fahren."],
+ 35:["crime","Schalte mit einem Einsatz von Combat Focus 5 Gegner aus.","Am besten gegen eine Gruppe mit einem Sturmgewehr."],
+ 36:["secret","Verlasse das VCIA auf ungeplante Weise.","Versteckte Story-Trophäe."],
+ 37:["secret","Ein heißer Kampf gegen Militär-Panzer.","Versteckte Trophäe."],
+ 38:["crime","Überfalle einen Juwelier, ohne entdeckt zu werden.","Leise vorgehen, Kameras vermeiden."],
+ 39:["crime","Knacke 5 Banktresore und entkomme.","Vorher ein gutes Fluchtauto bereitstellen."],
+ 40:["crime","Überfalle einen Geldtransporter und entkomme.","Geldtransporter tauchen zufällig in der Stadt auf."],
+ 41:["explore","Erkunde ganz Leonida.","Einmal die komplette Karte aufdecken – Fliegen geht am schnellsten."],
+ 42:["crime","Überfalle bei jeder Gang einen illegalen Betrieb.","Vorher gut ausrüsten, die Gangs wehren sich."],
+ 43:["secret","Genieß einen Cocktail mit Aussicht am Ocean Beach.","Versteckte Trophäe."],
+ 44:["secret","Brich stilvoll aus einem Autohaus aus.","Versteckte Trophäe."],
+ 45:["secret","Ein Volltreffer auf der Bowlingbahn von Kolt & Associates.","Versteckte Trophäe."],
+ 46:["secret","Eine Partnerschaft mit großer Reichweite.","Versteckte Trophäe."],
+ 47:["secret","Entscheidungen getroffen – ob gut oder schlecht.","Kommt durch Entscheidungen in Story-Missionen."],
+ 48:["secret","Beim zweiten Mal klappt's.","Versteckte Trophäe."],
+ 49:["secret","Was zur Hölle ist da gerade passiert?","Versteckte Trophäe."],
+ 50:["secret","Räum beim Bowling mit einem Nahkampf-Drive-by ab.","Versteckte Trophäe."],
+ 51:["money","Wasche 250.000 $ markierte Scheine über deine Kontakte.","Markierte Scheine aus Überfällen bei deinen Kontakten waschen."],
+ 52:["money","Gib in Läden insgesamt 100.000 $ aus.","Kleidung, Waffen, Tuning – alles zählt."],
+ 53:["money","Kaufe alle Garagen-Immobilien.","Geld dafür später im Spiel ansparen."],
+ 54:["explore","Registriere 10 Fahrzeuge in der Scooter-Bros-App.","Über das Handy im Spiel."]
+};
+const PEOPLE=[[21,"Andy"],[22,"Kenton"],[23,"Billy"],[25,"Randy"],[26,"Tyrone"],[28,"Bret"]];
+const DUO_TRO=[32,33,47];
 const CHAPTERS=[
  {n:1,title:"Just Like Paradise",m:["Prologue","Gone Fishing","Gear Up","Lab Fees","Just a Scratch","Unwanted Attention","Pipework","Hey Arnold!","Island Dreams","Feng Shui","Coming Home","Clean Up After Donnie","Buck Me","Down to Earth","Day Release","Clear Skies","Swamped","Don Gone","Recalibration","Tourist Trap","Home Sweet Home","Discharge Time"]},
  {n:2,title:"Paradise Lost",m:["What's in the Bag?","Just Moved In","Girls' Trip","Moses","Ambulance Chaser","Slam Dunk","Daily Driver","Breakfast Run","Coffee Break","Afternoon Delight","Checking Out"]},
- {n:3,title:"T**s Ass Drug Money",m:["Welcome to Vice City","Dealer's Choice|J","Dubious Provenance","Mami Knows Best|L","Here, Kitty Kitty|J","Encrypted Hard Drive","Boobie Time|J","Meet the Heders","Yasmani's Jewelry Jobs","Car Service|L","Top Billing","First Impressions","Crosstown Traffic / Meet Karim","Credit Check","Clonin' Keys, Makin' Gs","Ride or Die|J","Sinfrontera National Bank","Security Expert","Caught Slipping","Company Property","Safe Word","The Missing Link|L","Cooties","Hidden Charges","Bricked Up","South Leonida Real Estate|L","The Cartel Heist|Heist"]},
- {n:4,title:"Vice City, Baby!",m:["Ocean Beach","Another Life","Pool Day","Company Cars","Lawyer Up","It's a Date!","Party Hard","Photo/Shoot","Making Gainz|L","Blood Sweat and Gear|L","Too Much Baggage|J","Watch It|J","Amateur Hour|L","Cash Injections|L","Dirty Work","Adventures in Babysitting|J","Fresh Evidence|J","Child's Play","Power Play|L","Close Surveillance|J","Delivery Method|J","Team Building|L","Fully Catered","Headliners","VCIA Takedown|Heist","Tie Up Loose Ends","Sunset","Starting From Zero"]},
+ {n:3,title:"T**s Ass Drug Money",m:["Welcome to Vice City","Dealer's Choice|J","Dubious Provenance","Mami Knows Best|L","Here, Kitty Kitty|J","Encrypted Hard Drive","Boobie Time|J","Meet the Heders","Yasmani's Jewelry Jobs","Car Service|L","Top Billing","First Impressions","Crosstown Traffic / Meet Karim","Credit Check","Clonin' Keys, Makin' Gs","Ride or Die|J","Sinfrontera National Bank","Security Expert","Caught Slipping","Company Property","Safe Word","The Missing Link|L","Cooties","Hidden Charges","Bricked Up","South Leonida Real Estate|L","The Cartel Heist|H"]},
+ {n:4,title:"Vice City, Baby!",m:["Ocean Beach","Another Life","Pool Day","Company Cars","Lawyer Up","It's a Date!","Party Hard","Photo/Shoot","Making Gainz|L","Blood Sweat and Gear|L","Too Much Baggage|J","Watch It|J","Amateur Hour|L","Cash Injections|L","Dirty Work","Adventures in Babysitting|J","Fresh Evidence|J","Child's Play","Power Play|L","Close Surveillance|J","Delivery Method|J","Team Building|L","Fully Catered","Headliners","VCIA Takedown|H","Tie Up Loose Ends","Sunset","Starting From Zero"]},
  {n:5,title:"Top of the World, Ma",m:["Bird in the Hand","Taking Liberties","Doggie Bag","VC Baby","Operation Savage Glory","Honest Abe","Unfinished Business","Protective Custody","The End of the Road"]}
 ];
+const CHARS={
+  J:{name:"Jason Duval",cls:"j",ini:"J",role:"Der Mann fürs Grobe",bio:"Jason wollte immer ein ruhiges Leben, ist aber zwischen Betrügern und Gaunern groß geworden. Nach seiner Zeit in der Army ist er in den Keys gelandet und erledigt dort Jobs für lokale Dealer – bis Lucia in sein Leben tritt."},
+  L:{name:"Lucia Caminos",cls:"l",ini:"L",role:"Die Kämpferin",bio:"Lucias Vater hat ihr das Kämpfen beigebracht, kaum dass sie laufen konnte. Für ihre Familie hat sie zu oft zugeschlagen und saß dafür im Leonida Penitentiary. Jetzt ist sie draußen und will diesmal alles richtig machen."}
+};
+
+const $=(s)=>document.querySelector(s);
+const esc=(s)=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const https=(u)=>u?String(u).replace(/^http:/,"https:"):u;
+const de=(n)=>String(n).replace(".",",");
+const fmtMin=(m)=>!m?"0 Std":m<60?m+" Min":(m/60>=10?Math.round(m/60):de((m/60).toFixed(1)))+" Std";
+const fmtDate=(d)=>d?new Date(d).toLocaleDateString("de-DE",{day:"2-digit",month:"2-digit",year:"2-digit"}):"";
+const fmtTime=(d)=>d?new Date(d).toLocaleTimeString("de-DE",{hour:"2-digit",minute:"2-digit"}):"";
+const ago=(d)=>{const s=(Date.now()-new Date(d))/1000;if(s<90)return"gerade eben";if(s<3600)return"vor "+Math.round(s/60)+" Min";if(s<86400)return"vor "+Math.round(s/3600)+" Std";const t=Math.round(s/86400);return t===1?"gestern":"vor "+t+" Tagen"};
+const dayLabel=(d)=>{const a=new Date(d);a.setHours(0,0,0,0);const b=new Date();b.setHours(0,0,0,0);const n=Math.round((b-a)/864e5);return n===0?"Heute":n===1?"Gestern":a.toLocaleDateString("de-DE",{weekday:"long",day:"numeric",month:"long"})};
+const rareTxt=(r)=>r==null?"":r<5?"Ultra selten":r<15?"Sehr selten":r<50?"Selten":"Häufig";
+const rareCls=(r)=>r==null?"":r<5?"r1":r<15?"r2":"";
 const norm=(x)=>String(x).toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9']/g,"");
-let ticks={};try{ticks=JSON.parse(localStorage.getItem("vt-ticks")||"{}")}catch{}
-const saveTicks=()=>{try{localStorage.setItem("vt-ticks",JSON.stringify(ticks))}catch{}};
-let spoil={};
-function storyState(){
-  const tr=(D.gta&&D.gta.trophies)||[];
-  const chapDone={}, missionTrophy={};
-  for(const t of tr){
-    const d=t.detail||"";
-    let m=d.match(/^Complete Chapter (\d)\.?$/i); if(m){ if(t.earned) chapDone[+m[1]]=t; continue; }
-    if(/final mission\.?$/i.test(d)&&!/for /i.test(d)){ if(t.earned) chapDone[5]=t; continue; }
-    m=d.match(/^Complete (.+?)\.?$/i); if(m) missionTrophy[norm(m[1])]=t;
-  }
-  return CHAPTERS.map((c,ci)=>{
-    const done=!!chapDone[c.n];
-    const ms=c.m.map(x=>{const [name,tag]=x.split("|");return {name,tag,trophy:missionTrophy[norm(name)]||null}});
-    let lastIdx=-1; ms.forEach((x,i)=>{if(x.trophy&&x.trophy.earned) lastIdx=i});
-    ms.forEach((x,i)=>{x.ok=done||i<=lastIdx||!!ticks[c.n+":"+x.name];x.auto=done||i<=lastIdx});
-    return {...c,done,ms};
-  });
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
+function toast(t){const e=$("#toast");e.textContent=t;e.classList.add("on");clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove("on"),1800)}
+function ringSet(el,pct){setTimeout(()=>{el.style.strokeDashoffset=157.1*(1-Math.min(100,pct)/100)},80)}
+function countUp(el,to,suf=""){let s=null;const step=(t)=>{if(!s)s=t;const k=Math.min(1,(t-s)/1000);el.textContent=Math.round(to*(1-Math.pow(1-k,3)))+suf;if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
+
+function demoData(){
+  const now=Date.now();
+  const trophies=Object.entries(TDE).map(([id,[cat,txt]])=>{id=+id;const earned=[1,2,3,7,34,47].includes(id);return{id,name:"Trophäe "+id,detail:"",type:id===0?"platinum":[6,13].includes(id)?"gold":[14,16,24,29,30,39].includes(id)?"silver":"bronze",icon:null,hidden:cat==="secret"||(cat==="story"&&id>0),earned,earnedAt:earned?new Date(now-(60-id)*36e5*3).toISOString():null,rarity:Math.max(.5,Math.round((90-id*1.6)*10)/10)}});
+  trophies.forEach(t=>{const m={2:"Complete Chapter 1.",3:"Complete Chapter 2.",4:"Complete Chapter 3.",5:"Complete Chapter 4.",6:"Complete the final mission.",7:"Complete Breakfast Run.",8:"Complete The Cartel Heist."}[t.id];if(m)t.detail=m});
+  const hist=[];for(let d=6;d>=0;d--)hist.push({day:new Date(now-d*864e5).toISOString().slice(0,10),gtaMinutes:1600+(6-d)*70+(d%2)*20});
+  return{data:{updated:new Date().toISOString(),demo:true,profile:{onlineId:"Spieler",level:133,levelProgress:16,earned:{bronze:335,silver:58,gold:24,platinum:0},presence:{online:true,game:"Grand Theft Auto VI"}},gta:{name:"Grand Theft Auto VI",progress:8,minutes:1983,firstPlayed:new Date(now-5*864e5).toISOString(),trophies},games:[{name:"Grand Theft Auto VI",progress:8,minutes:1983,earned:{platinum:0,gold:0,silver:0,bronze:6},lastPlayed:new Date().toISOString()}]},hist};
 }
-function renderStory(){
-  const st=storyState();
-  const cur=st.find(c=>!c.done);
-  const total=st.reduce((a,c)=>a+c.ms.length,0), ok=st.reduce((a,c)=>a+c.ms.filter(x=>x.ok).length,0);
-  $("#st-title").textContent=cur?"Kapitel "+cur.n:"Story durch! 👑";
-  $("#st-sub").textContent=cur?cur.title+" · "+st.filter(c=>c.done).length+" von 5 Kapiteln geschafft":"Alle 5 Kapitel abgeschlossen";
-  const pct=Math.round(ok/total*100);
-  setTimeout(()=>{$("#st-bar").style.width=pct+"%"},60);
-  $("#st-count").textContent=ok+" von ~"+total+" Missionen";
-  $("#st-pct").textContent=pct+" %";
-  $("#chapters").innerHTML=st.map(c=>{
-    const isCur=cur&&c.n===cur.n, future=!c.done&&!isCur;
-    const n=c.ms.filter(x=>x.ok).length;
-    const badge=c.done?'<span class="badge b-done">✓ Geschafft</span>':isCur?'<span class="badge b-cur">Jetzt</span>':'<span class="badge b-next">Kommt noch</span>';
-    const showNames=!future||spoil[c.n];
-    const items=showNames?c.ms.map((x,i)=>`<div class="mi ${x.ok?"ok":""}" ${isCur&&!x.auto?`data-tick="${c.n}:${esc(x.name)}"`:""}><div class="ck">${x.ok?"✓":""}</div><span class="n">${i+1}. ${esc(x.name)}</span>${x.trophy?`<span class="tr" title="Trophäe">🏆</span>`:""}${x.tag?`<span class="tag" style="${x.trophy?"margin-left:6px":""}">${x.tag==="Heist"?"Heist":x.tag==="J"?"Jason":"Lucia"}</span>`:""}</div>`).join(""):`<button class="spoil" data-spoil="${c.n}">🙈 ${c.ms.length} Missionen – Namen anzeigen (Spoiler)</button>`;
-    return `<div class="chap ${c.done?"done":""} ${isCur?"cur open":""}" data-chap="${c.n}"><div class="chead"><div class="cnum">${c.n}</div><div class="t"><b>${future&&!spoil[c.n]?"Kapitel "+c.n:esc(c.title)}</b><small>${c.done?c.ms.length+" Missionen":isCur?n+" von "+c.ms.length+" Missionen":c.ms.length+" Missionen"}</small></div>${badge}</div><div class="mlist">${items}</div></div>`;
-  }).join("");
+async function load(){
+  try{
+    const [d,h]=await Promise.all([fetch("data.json?"+Date.now()).then(r=>{if(!r.ok)throw 0;return r.json()}),fetch("history.json?"+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[])]);
+    return{data:d,hist:h};
+  }catch{return demoData()}
 }
 
-let D,H,filter="all";
+let ticks=store.get("vt-ticks",{}),spoil={},showHidden=store.get("vt-spoil",false);
+let D,H,filter="all",cat=null,gfilter="recent";
+const trophies=()=>(D.gta&&D.gta.trophies)||[];
+const tde=(t)=>TDE[t.id]||["act",t.detail,""];
+const isHid=(t)=>t.hidden&&!t.earned&&!showHidden;
+const tName=(t)=>isHid(t)?"Versteckte Trophäe":t.name;
+const tDesc=(t)=>isHid(t)?"Spiel weiter, um sie aufzudecken.":tde(t)[1];
+const tagName=(t)=>t==="J"?"Jason":t==="L"?"Lucia":t==="H"?"Heist":"";
+const tagHtml=(t)=>t?`<span class="tag ${t}">${tagName(t)}</span>`:"";
+
+function storyState(){
+  const chapDone={},missionTrophy={};
+  for(const t of trophies()){
+    const d=t.detail||"";
+    let m=d.match(/^Complete Chapter (\d)\.?$/i);if(m){if(t.earned)chapDone[+m[1]]=t;continue}
+    if(/^Complete the final mission\.?$/i.test(d)){if(t.earned)chapDone[5]=t;continue}
+    m=d.match(/^Complete (.+?)\.?$/i);if(m)missionTrophy[norm(m[1])]=t;
+  }
+  const chs=CHAPTERS.map(c=>{
+    const done=!!chapDone[c.n];
+    const ms=c.m.map(x=>{const[name,tag]=x.split("|");return{name,tag,trophy:missionTrophy[norm(name)]||null}});
+    let last=-1;ms.forEach((x,i)=>{if(x.trophy&&x.trophy.earned)last=i});
+    ms.forEach((x,i)=>{x.auto=done||i<=last;x.ok=x.auto||!!ticks[c.n+":"+x.name]});
+    return{...c,done,doneAt:chapDone[c.n]?.earnedAt||null,ms};
+  });
+  const cur=chs.find(c=>!c.done)||null;
+  const all=chs.flatMap(c=>c.ms.map(m=>({...m,ch:c.n})));
+  const ok=all.filter(m=>m.ok).length;
+  const next=cur?cur.ms.find(m=>!m.ok):null;
+  return{chs,cur,all,ok,total:all.length,next,pct:Math.round(ok/all.length*100)};
+}
+
 function render(){
-  const p=D.profile||{}, g=D.gta;
+  const p=D.profile||{},g=D.gta,pr=p.presence;
   $("#demo").hidden=!D.demo;
   $("#name").textContent=p.onlineId||"Spieler";
   const ini=esc((p.onlineId||"V")[0].toUpperCase());
-  $("#avatar").innerHTML=p.avatar?`<img src="${esc(p.avatar.replace(/^http:/,"https:"))}" alt="" onerror="this.parentNode.textContent='${ini}'">`:ini;
-  $("#level").textContent=p.level??"–";
-  $("#updated").textContent=D.updated?"aktualisiert "+ago(D.updated):"";
-  $("#foot").textContent=D.demo?"Demo-Daten":"Daten vom PlayStation Network · aktualisiert sich automatisch";
+  $("#avatar").innerHTML=(p.avatar?`<img src="${esc(https(p.avatar))}" alt="" onerror="this.remove()">`:"")+(p.avatar?"":ini)+`<i class="on ${pr&&pr.online?"yes":""}"></i>`;
+  const st=pr?(pr.online?("Online"+(pr.game?" · spielt "+pr.game:"")):(pr.lastOnline?"Zuletzt online "+ago(pr.lastOnline):"Offline")):"";
+  $("#status").textContent=(st?st+" · ":"")+"Stand "+ago(D.updated);
+  if(!g){$("#v-home").innerHTML=`<div class="empty">GTA VI wurde auf deinem Konto noch nicht gefunden.<br>Starte das Spiel einmal auf der PS5.</div>`;renderMore();return}
+  renderHome();renderStory();renderDuo();renderTro();renderMore();
+}
 
-  if(!g){ $("#v-home").innerHTML=`<div class="empty">GTA VI wurde auf deinem Konto noch nicht gefunden.<br>Starte das Spiel einmal auf der PS5 – danach taucht es hier auf.</div>`; }
-  else{
-    const tr=g.trophies||[], done=tr.filter(t=>t.earned);
-    setTimeout(()=>{$("#arc").style.strokeDashoffset=389.6*(1-(g.progress||0)/100)},80);
-    countUp($("#pct"),g.progress||0,"%");
-    $("#tcount").innerHTML=["platinum","gold","silver","bronze"].map(t=>{const all=tr.filter(x=>x.type===t).length;const e=done.filter(x=>x.type===t).length;return `<div class="tc"><i style="background:${COL[t]}"></i><b>${e}</b><small style="color:var(--mute)">/${all}</small><span>${NAMES[t]}</span></div>`}).join("");
-    $("#s-earned").textContent=done.length+"/"+tr.length;
-    $("#s-time").textContent=fmtMin(g.minutes);
-    const week=done.filter(t=>t.earnedAt&&Date.now()-new Date(t.earnedAt)<7*864e5).length;
-    $("#s-week").textContent="+"+week;
-    const nx=tr.filter(t=>!t.earned&&t.type!=="platinum").sort((a,b)=>(b.rarity??0)-(a.rarity??0)).slice(0,8);
-    $("#next").innerHTML=nx.length?nx.map(t=>`<div class="nx" data-id="${t.id}">${t.icon?`<img src="${esc(t.icon)}" alt="">`:`<div class="ph">🏆</div>`}<b>${t.hidden&&!t.earned?"Versteckte Trophäe":esc(t.name)}</b><span>${t.rarity!=null?t.rarity+" % haben sie":""}</span></div>`).join(""):`<div class="empty" style="padding:10px">Alles geholt! 👑</div>`;
-    const rec=[...done].sort((a,b)=>new Date(b.earnedAt)-new Date(a.earnedAt)).slice(0,5);
-    $("#recent").innerHTML=rec.length?rec.map(row).join(""):`<div class="empty">Noch keine Trophäe – leg los!</div>`;
-    chart();
-  }
-  // Trophäen-Liste
-  const tr=(g&&g.trophies)||[];
+function renderHome(){
+  const g=D.gta,tr=trophies(),done=tr.filter(t=>t.earned),S=storyState();
+  $("#h-chap").textContent=S.cur?"Kapitel "+S.cur.n+" von 5":"Story durch! 👑";
+  $("#h-chapname").textContent=S.cur?S.cur.title:"Alle Kapitel abgeschlossen";
+  $("#h-miles").innerHTML=S.chs.map(c=>`<div class="${c.done?"d":S.cur&&c.n===S.cur.n?"c":""}"></div>`).join("");
+  ringSet($("#r-story"),S.pct);countUp($("#h-story"),S.pct,"%");
+  ringSet($("#r-tro"),g.progress||0);countUp($("#h-tro"),g.progress||0,"%");
+  $("#h-next").innerHTML=S.next?`<div style="flex:1;min-width:0"><small>Nächste Mission</small><b>${esc(S.next.name)}</b></div>${S.next.tag?tagHtml(S.next.tag):'<span class="pill">Jason &amp; Lucia</span>'}`:`<div><small>Nächste Mission</small><b>Nichts mehr offen 🎉</b></div>`;
+  const first=g.firstPlayed?new Date(g.firstPlayed):(done.length?new Date(Math.min(...done.map(t=>+new Date(t.earnedAt)))):null);
+  const days=first?Math.max(1,Math.ceil((Date.now()-first)/864e5)):null;
+  $("#s-time").textContent=fmtMin(g.minutes);
+  $("#s-avg").textContent=days?fmtMin(Math.round((g.minutes||0)/days)):"–";
+  $("#s-days").textContent=days??"–";
+  $("#s-earned").textContent=done.length+"/"+tr.length;
+  $("#s-week").textContent="+"+done.filter(t=>t.earnedAt&&Date.now()-new Date(t.earnedAt)<7*864e5).length;
+  const rarest=done.filter(t=>t.rarity!=null).sort((a,b)=>a.rarity-b.rarity)[0];
+  $("#s-rare").textContent=rarest?de(rarest.rarity)+" %":"–";
+  const fc=$("#forecast");
+  if(S.cur&&S.ok>3&&g.minutes>60){
+    const left=S.total-S.ok,leftMin=g.minutes/S.ok*left,perDay=Math.max(30,days?g.minutes/days:120);
+    const eta=new Date(Date.now()+leftMin/perDay*864e5);
+    fc.innerHTML=`<div class="em">🔮</div><div><b>Story fertig ca. am ${eta.toLocaleDateString("de-DE",{day:"numeric",month:"long"})}</b><p>Noch etwa ${fmtMin(Math.round(leftMin))} Spielzeit für ${left} Missionen – bei deinem Tempo von ${fmtMin(Math.round(perDay))} am Tag.</p></div>`;
+  }else if(!S.cur)fc.innerHTML=`<div class="em">👑</div><div><b>Story geschafft!</b><p>Jetzt Richtung 100 % und Platin – schau in den Trophäen-Tab.</p></div>`;
+  else fc.innerHTML=`<div class="em">🔮</div><div><b>Prognose kommt gleich</b><p>Sobald ein paar Missionen erledigt sind, rechne ich aus, wann du mit der Story durch bist.</p></div>`;
+  playChart();
+  const nx=tr.filter(t=>!t.earned&&!t.hidden&&t.type!=="platinum").sort((a,b)=>(b.rarity??0)-(a.rarity??0)).slice(0,10);
+  $("#next").innerHTML=nx.map(t=>`<button class="nx" data-id="${t.id}">${t.icon?`<img src="${esc(t.icon)}" alt="">`:`<div class="ph">🏆</div>`}<b>${esc(t.name)}</b><p>${esc(tde(t)[1])}</p><span>${t.rarity!=null?de(t.rarity)+" % haben sie":""}</span></button>`).join("")||`<div class="empty">Alles Sichtbare geholt! 👑</div>`;
+  const rec=[...done].sort((a,b)=>new Date(b.earnedAt)-new Date(a.earnedAt)).slice(0,12);
+  let lastDay="",html="";
+  for(const t of rec){const dl=dayLabel(t.earnedAt);if(dl!==lastDay){html+=`<div class="day">${dl}</div>`;lastDay=dl}html+=row(t,fmtTime(t.earnedAt))}
+  $("#feed").innerHTML=html||`<div class="empty">Noch keine Trophäe – leg los!</div>`;
+}
+
+function playChart(){
+  const svg=$("#pt-chart"),h=(H||[]).filter(x=>x.gtaMinutes!=null);
+  const pts=[];for(let i=1;i<h.length;i++)pts.push({day:h[i].day,min:Math.max(0,h[i].gtaMinutes-h[i-1].gtaMinutes)});
+  const last=pts.slice(-14);
+  if(!last.length){svg.innerHTML=`<text x="160" y="72" text-anchor="middle" fill="#a593c2" font-size="11">Ab morgen siehst du hier deine Spielzeit pro Tag</text>`;$("#pt-info").textContent="";return}
+  const max=Math.max(60,...last.map(x=>x.min)),W=320,Hh=140,slot=(W-20)/last.length,bw=Math.min(34,slot-6);
+  svg.innerHTML=`<defs><linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff2e88"/><stop offset="1" stop-color="#ffb347"/></linearGradient></defs>`+last.map((x,i)=>{const bh=Math.max(3,(x.min/max)*(Hh-36));const xx=10+i*slot+(slot-bw)/2;const d=new Date(x.day);return`<rect x="${xx}" y="${Hh-18-bh}" width="${bw}" height="${bh}" rx="5" fill="url(#bg)"/><text x="${xx+bw/2}" y="${Hh-4}" text-anchor="middle" fill="#a593c2" font-size="9">${d.toLocaleDateString("de-DE",{weekday:"short"}).slice(0,2)}</text>${x.min?`<text x="${xx+bw/2}" y="${Hh-23-bh}" text-anchor="middle" fill="#f6eefe" font-size="9" font-weight="700">${x.min>=60?de((x.min/60).toFixed(1))+"h":x.min+"m"}</text>`:""}`}).join("");
+  $("#pt-info").textContent=fmtMin(last.reduce((a,x)=>a+x.min,0))+" in "+last.length+(last.length===1?" Tag":" Tagen");
+}
+
+function renderStory(){
+  const S=storyState();
+  $("#st-title").textContent=S.cur?"Kapitel "+S.cur.n:"Story durch! 👑";
+  $("#st-sub").textContent=S.cur?S.cur.title+" · "+S.chs.filter(c=>c.done).length+" von 5 Kapiteln geschafft":"Alle 5 Kapitel abgeschlossen";
+  setTimeout(()=>{$("#st-bar").style.width=S.pct+"%"},60);
+  $("#st-count").textContent=S.ok+" von ~"+S.total+" Missionen";
+  $("#st-pct").textContent=S.pct+" %";
+  let prev=D.gta.firstPlayed;
+  $("#chapters").innerHTML=S.chs.map(c=>{
+    const isCur=S.cur&&c.n===S.cur.n,future=!c.done&&!isCur,n=c.ms.filter(x=>x.ok).length;
+    let dur="";
+    if(c.done&&c.doneAt){const d=prev?Math.max(0,Math.round((new Date(c.doneAt)-new Date(prev))/864e5)):null;dur=` · fertig ${fmtDate(c.doneAt)}${d?` (${d} ${d===1?"Tag":"Tage"})`:""}`;prev=c.doneAt}
+    const badge=c.done?'<span class="badge b-done">✓ Geschafft</span>':isCur?'<span class="badge b-cur">Jetzt</span>':'<span class="badge b-next">Kommt noch</span>';
+    const show=!future||spoil[c.n];
+    const items=show?c.ms.map((x,i)=>`<div class="mi ${x.ok?"ok":""} ${isCur&&S.next&&x.name===S.next.name?"nextup":""}" ${isCur&&!x.auto?`data-tick="${c.n}:${esc(x.name)}"`:""}><div class="ck">${x.ok?"✓":""}</div><span class="n">${i+1}. ${esc(x.name)}</span><span class="tags">${x.trophy?"🏆":""}${tagHtml(x.tag)}</span></div>`).join(""):`<button class="spoil" data-spoil="${c.n}">🙈 ${c.ms.length} Missionen – Namen anzeigen (Spoiler)</button>`;
+    const js=c.ms.filter(x=>x.tag==="J").length,ls=c.ms.filter(x=>x.tag==="L").length;
+    return`<div class="chap ${c.done?"done":""} ${isCur?"cur open":""} ${spoil[c.n]?"open":""}" data-chap="${c.n}"><div class="chead"><div class="cnum">${c.n}</div><div class="t"><b>${future&&!spoil[c.n]?"Kapitel "+c.n:esc(c.title)}</b><small>${isCur?n+" von "+c.ms.length+" Missionen":c.ms.length+" Missionen"}${dur}${show&&(js||ls)?` · ${js}× Jason, ${ls}× Lucia`:""}</small></div>${badge}</div><div class="mlist">${items}</div></div>`;
+  }).join("");
+}
+
+function renderDuo(){
+  const S=storyState(),tr=trophies();
+  const cnt=(tag)=>{const a=S.all.filter(m=>m.tag===tag);return{tot:a.length,ok:a.filter(m=>m.ok).length,curLeft:S.cur?S.cur.ms.filter(m=>m.tag===tag&&!m.ok):[],next:S.all.find(m=>m.tag===tag&&!m.ok)}};
+  const J=cnt("J"),L=cnt("L"),both=S.all.filter(m=>!m.tag||m.tag==="H");
+  $("#vs-j").textContent=J.ok+"/"+J.tot;$("#vs-l").textContent=L.ok+"/"+L.tot;
+  const sum=J.ok+L.ok;
+  $("#vs-split").innerHTML=sum?`<i style="width:${J.ok/sum*100}%;background:var(--jason)"></i><i style="width:${L.ok/sum*100}%;background:var(--lucia)"></i>`:`<i style="width:50%;background:rgba(77,163,255,.25)"></i><i style="width:50%;background:rgba(255,46,136,.25)"></i>`;
+  $("#vs-txt").textContent=`Dazu ${both.filter(m=>m.ok).length} von ${both.length} gemeinsamen Missionen erledigt. Getrennte Missionen für Jason und Lucia gibt es ab Kapitel 3.`;
+  $("#chars").innerHTML=["J","L"].map(k=>{const c=CHARS[k],s=k==="J"?J:L,first=c.name.split(" ")[0];
+    return`<h2>${c.name} <small>${c.role}</small></h2><div class="hero char ${c.cls}"><div class="ch-top"><div class="mono">${c.ini}</div><div><h3>${first}</h3><small>${s.ok} von ${s.tot} eigenen Missionen</small></div></div><p class="bio">${c.bio}</p><div class="cstats"><div><b>${s.ok}</b><span>geschafft</span></div><div><b>${s.curLeft.length}</b><span>offen in Kap. ${S.cur?S.cur.n:"–"}</span></div><div><b>${s.tot-s.ok}</b><span>insgesamt offen</span></div></div>${s.next?`<div class="nextm" data-go="story"><div style="flex:1;min-width:0"><small>Nächste ${first}-Mission</small><b>${S.cur&&s.next.ch>S.cur.n&&!spoil[s.next.ch]?"🙈 Spoiler – kommt in Kapitel "+s.next.ch:esc(s.next.name)}</b></div><span class="pill">Kap. ${s.next.ch}</span></div>`:""}</div>`}).join("");
+  $("#duo-tro").innerHTML=DUO_TRO.map(id=>tr.find(t=>t.id===id)).filter(Boolean).map(t=>row(t)).join("");
+  $("#npcs").innerHTML=PEOPLE.map(([id,n])=>{const t=tr.find(x=>x.id===id),ok=t&&t.earned;return`<div class="npc ${ok?"ok":""}" data-id="${id}"><div class="ini">${ok?"✓":n[0]}</div><div class="t"><b>${n}</b><small>${ok?"Abgeschlossen · "+fmtDate(t.earnedAt):id===28?"Besonderes Tier jagen":"Letzte Mission noch offen"}</small></div>${t&&t.rarity!=null?`<span class="rare ${rareCls(t.rarity)}">${de(t.rarity)} %</span>`:""}</div>`}).join("");
+}
+
+function row(t,meta){
+  return`<div class="tro ${t.earned?"":"off"}" data-id="${t.id}">${t.icon?`<img src="${esc(t.icon)}" alt="" loading="lazy">`:`<div class="ph">🏆</div>`}<div class="t"><b><span class="dot" style="background:${COL[t.type]}"></span> ${esc(tName(t))}</b><span class="ds">${esc(tDesc(t))}</span>${t.rarity!=null?`<span class="rare ${rareCls(t.rarity)}">${rareTxt(t.rarity)} · ${de(t.rarity)} %</span>`:""}</div><div class="m">${t.earned?`<div class="check">✓</div>${meta??fmtDate(t.earnedAt)}`:""}</div></div>`;
+}
+
+function renderTro(){
+  const tr=trophies();
   $("#trocount").textContent=tr.filter(t=>t.earned).length+" von "+tr.length;
-  const chips=[["all","Alle"],["open","Offen"],["done","Geschafft"],["platinum","Platin"],["gold","Gold"],["silver","Silber"],["bronze","Bronze"],["rare","Selten"]];
-  $("#chips").innerHTML=chips.map(([k,l])=>`<button class="chip ${k===filter?"on":""}" data-f="${k}">${l}</button>`).join("");
+  const byCat={};tr.forEach(t=>{const c=tde(t)[0];(byCat[c]=byCat[c]||[]).push(t)});
+  $("#cats").innerHTML=Object.keys(CATS).filter(k=>byCat[k]).map(k=>{const a=byCat[k],e=a.filter(t=>t.earned).length;return`<button class="cat ${cat===k?"on":""}" data-cat="${k}"><span class="ce">${CATS[k].e}</span><b>${CATS[k].n}</b><small>${e} von ${a.length}</small><div class="bar"><i style="width:${e/a.length*100}%"></i></div></button>`}).join("");
+  const chips=[["all","Alle"],["open","Offen"],["done","Geschafft"],["easy","Am leichtesten"],["rare","Am seltensten"],["gold","Gold"],["silver","Silber"],["spoil",showHidden?"🙉 Spoiler an":"🙈 Spoiler aus"]];
+  $("#chips").innerHTML=chips.map(([k,l])=>`<button class="chip ${k===filter||(k==="spoil"&&showHidden)?"on":""}" data-f="${k}">${l}</button>`).join("");
   list();
-  renderStory();
-  // Spiele
-  const gs=[...(D.games||[])].sort((a,b)=>new Date(b.lastPlayed||0)-new Date(a.lastPlayed||0));
-  $("#gcount").textContent=gs.length+" Spiele";
-  $("#games").innerHTML=gs.map(x=>{const e=x.earned||{};return `<div class="game">${x.icon?`<img src="${esc(x.icon)}" alt="" loading="lazy">`:`<div class="ph"></div>`}<div class="t"><b>${esc(x.name)}</b><small>${["platinum","gold","silver","bronze"].map(t=>`<span class="dot" style="background:${COL[t]};width:8px;height:8px"></span> ${e[t]||0}`).join(" &nbsp;")}${x.minutes?" · "+fmtMin(x.minutes):""}</small><div class="bar"><i style="width:${x.progress||0}%"></i></div></div><div class="p">${x.progress||0}%</div></div>`}).join("")||`<div class="empty">Keine Spiele gefunden.</div>`;
 }
-
-function row(t){
-  const hid=t.hidden&&!t.earned;
-  return `<div class="tro ${t.earned?"":"off"}" data-id="${t.id}">${t.icon?`<img src="${esc(t.icon)}" alt="" loading="lazy">`:`<div class="ph">🏆</div>`}<div class="t"><b><span class="dot" style="background:${COL[t.type]}"></span> ${hid?"Versteckte Trophäe":esc(t.name)}</b><span class="ds">${hid?"Spiel weiter, um sie aufzudecken.":esc(t.detail)}</span>${t.rarity!=null?`<span class="rare">${rareTxt(t.rarity)} · ${t.rarity} %</span>`:""}</div><div class="m">${t.earned?`<div class="check">✓</div>${fmtDate(t.earnedAt)}`:""}</div></div>`;
-}
-
 function list(){
   const q=$("#q").value.trim().toLowerCase();
-  let tr=((D.gta&&D.gta.trophies)||[]).slice();
-  if(filter==="open") tr=tr.filter(t=>!t.earned);
-  else if(filter==="done") tr=tr.filter(t=>t.earned);
-  else if(filter==="rare") tr=tr.filter(t=>t.rarity!=null&&t.rarity<15).sort((a,b)=>a.rarity-b.rarity);
-  else if(NAMES[filter]) tr=tr.filter(t=>t.type===filter);
-  if(q) tr=tr.filter(t=>!(t.hidden&&!t.earned)&&(t.name+" "+t.detail).toLowerCase().includes(q));
-  $("#list").innerHTML=tr.map(row).join("")||`<div class="empty">Nichts gefunden.</div>`;
+  let tr=trophies().slice();
+  if(cat)tr=tr.filter(t=>tde(t)[0]===cat);
+  if(filter==="open")tr=tr.filter(t=>!t.earned);
+  else if(filter==="done")tr=tr.filter(t=>t.earned).sort((a,b)=>new Date(b.earnedAt)-new Date(a.earnedAt));
+  else if(filter==="easy")tr=tr.filter(t=>!t.earned).sort((a,b)=>(b.rarity??0)-(a.rarity??0));
+  else if(filter==="rare")tr=tr.filter(t=>t.rarity!=null).sort((a,b)=>a.rarity-b.rarity);
+  else if(NAMES[filter])tr=tr.filter(t=>t.type===filter);
+  if(q)tr=tr.filter(t=>!isHid(t)&&(t.name+" "+tde(t)[1]).toLowerCase().includes(q));
+  $("#listinfo").textContent=(cat?CATS[cat].n+" · ":"")+tr.length+" Einträge";
+  $("#list").innerHTML=tr.map(t=>row(t)).join("")||`<div class="empty">Nichts gefunden.</div>`;
 }
 
-function chart(){
-  const svg=$("#chart"); const h=(H||[]).filter(x=>x.gtaEarned!=null);
-  if(h.length<2){ svg.innerHTML=`<text x="160" y="80" text-anchor="middle" fill="#a593c2" font-size="12">Der Verlauf füllt sich ab morgen</text>`; $("#histinfo").textContent=""; return; }
-  const W=320,Hh=150,pad=14, max=Math.max(...h.map(x=>x.gtaEarned),1);
-  const pts=h.map((x,i)=>[pad+i*(W-2*pad)/(h.length-1), Hh-pad-(x.gtaEarned/max)*(Hh-2*pad)]);
-  const d=pts.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ");
-  svg.innerHTML=`<defs><linearGradient id="fill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff2e88" stop-opacity=".45"/><stop offset="1" stop-color="#ff2e88" stop-opacity="0"/></linearGradient><linearGradient id="ln" x1="0" x2="1"><stop offset="0" stop-color="#20e3d2"/><stop offset="1" stop-color="#ff2e88"/></linearGradient></defs>
-  <path d="${d} L${pts.at(-1)[0]} ${Hh} L${pts[0][0]} ${Hh}Z" fill="url(#fill)"/>
-  <path d="${d}" fill="none" stroke="url(#ln)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
-  <circle cx="${pts.at(-1)[0]}" cy="${pts.at(-1)[1]}" r="4" fill="#ff2e88"/>`;
-  $("#histinfo").textContent="Trophäen · letzte "+h.length+" Tage";
+function renderMore(){
+  const p=D.profile||{},e=p.earned||{};
+  $("#p-level").textContent="Level "+(p.level??"–");
+  $("#p-lvbar").style.width=(p.levelProgress||0)+"%";
+  $("#p-lvtxt").textContent=(p.levelProgress??0)+" % bis Level "+((p.level||0)+1);
+  const tot=["platinum","gold","silver","bronze"].reduce((a,k)=>a+(e[k]||0),0);
+  $("#p-grid").innerHTML=`<div class="stat"><b>${tot}</b><span>Trophäen</span></div>`+["platinum","gold","silver","bronze"].map(k=>`<div class="stat"><b><span class="dot" style="background:${COL[k]}"></span> ${e[k]||0}</b><span>${NAMES[k]}</span></div>`).join("")+`<div class="stat"><b>${(D.games||[]).length}</b><span>Spiele</span></div>`;
+  const gch=[["recent","Zuletzt gespielt"],["progress","Fortschritt"],["time","Spielzeit"],["done","100 %"]];
+  $("#gchips").innerHTML=gch.map(([k,l])=>`<button class="chip ${k===gfilter?"on":""}" data-g="${k}">${l}</button>`).join("");
+  let gs=[...(D.games||[])];
+  if(gfilter==="recent")gs.sort((a,b)=>new Date(b.lastPlayed||0)-new Date(a.lastPlayed||0));
+  if(gfilter==="progress")gs.sort((a,b)=>(b.progress||0)-(a.progress||0));
+  if(gfilter==="time")gs=gs.filter(x=>x.minutes).sort((a,b)=>b.minutes-a.minutes);
+  if(gfilter==="done")gs=gs.filter(x=>x.progress===100);
+  $("#gcount").textContent=gs.length+" Spiele";
+  $("#games").innerHTML=gs.slice(0,150).map(x=>{const e=x.earned||{};return`<div class="game">${x.icon?`<img src="${esc(x.icon)}" alt="" loading="lazy">`:`<div class="ph"></div>`}<div class="t"><b>${esc(x.name)}</b><small>${["platinum","gold","silver","bronze"].map(t=>`<span class="dot" style="background:${COL[t]};width:7px;height:7px"></span> ${e[t]||0}`).join(" &nbsp;")}${x.minutes?" · "+fmtMin(x.minutes):""}</small><div class="bar"><i style="width:${x.progress||0}%"></i></div></div><div class="p">${x.progress||0}%</div></div>`}).join("")||`<div class="empty">Keine Spiele.</div>`;
+  $("#foot").innerHTML=D.demo?"Demo-Daten":`Daten vom PlayStation Network · Stand ${new Date(D.updated).toLocaleString("de-DE",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"})} Uhr<br>Aktualisiert sich automatisch jede Stunde.`;
 }
-
-function countUp(el,to,suf){let s=null;const step=(t)=>{if(!s)s=t;const k=Math.min(1,(t-s)/1100);el.textContent=Math.round(to*(1-Math.pow(1-k,3)))+suf;if(k<1)requestAnimationFrame(step)};requestAnimationFrame(step)}
 
 function openSheet(id){
-  const t=((D.gta&&D.gta.trophies)||[]).find(x=>String(x.id)===String(id)); if(!t) return;
-  const hid=t.hidden&&!t.earned;
-  $("#sheetin").innerHTML=`${t.icon?`<img src="${esc(t.icon)}" alt="" style="${t.earned?"":"filter:grayscale(1) brightness(.6)"}">`:`<div style="font-size:60px;text-align:center">🏆</div>`}<h3>${hid?"Versteckte Trophäe":esc(t.name)}</h3><p>${hid?"Diese Trophäe ist versteckt, bis du sie freischaltest.":esc(t.detail)}</p><div class="row"><div><b style="color:${COL[t.type]}">${NAMES[t.type]}</b>Typ</div><div><b>${t.rarity!=null?t.rarity+" %":"–"}</b>Spieler</div><div><b>${t.earned?"✓ "+fmtDate(t.earnedAt):"offen"}</b>Status</div></div>`;
+  const t=trophies().find(x=>String(x.id)===String(id));if(!t)return;
+  const hid=isHid(t),[c,txt,tip]=tde(t);
+  $("#sheetin").innerHTML=`${t.icon?`<img class="ico" src="${esc(t.icon)}" alt="" style="${t.earned?"":"filter:grayscale(1) brightness(.6)"}">`:`<div style="font-size:60px;text-align:center">🏆</div>`}<h3>${esc(hid?"Versteckte Trophäe":t.name)}</h3><div class="en">${CATS[c].e} ${CATS[c].n}</div><p>${esc(hid?"Diese Trophäe ist versteckt, bis du sie freischaltest.":txt)}</p>${!hid&&tip&&!t.earned?`<div class="tip">💡 ${esc(tip)}</div>`:""}<div class="row"><div><b style="color:${COL[t.type]}">${NAMES[t.type]}</b>Typ</div><div><b>${t.rarity!=null?de(t.rarity)+" %":"–"}</b>der Spieler</div><div><b>${t.earned?"✓ "+fmtDate(t.earnedAt):"offen"}</b>Status</div></div>${hid?`<button class="btn ghost" data-reveal="${t.id}">🙈 Trotzdem aufdecken</button>`:""}`;
   $("#sheet").classList.add("on");
 }
 
+async function shareCard(){
+  const S=storyState(),g=D.gta,p=D.profile||{};
+  const c=document.createElement("canvas");c.width=1080;c.height=1920;const x=c.getContext("2d");
+  const rr=(X,Y,W,H,R)=>{x.beginPath();x.moveTo(X+R,Y);x.arcTo(X+W,Y,X+W,Y+H,R);x.arcTo(X+W,Y+H,X,Y+H,R);x.arcTo(X,Y+H,X,Y,R);x.arcTo(X,Y,X+W,Y,R);x.closePath()};
+  let gr=x.createLinearGradient(0,0,0,1920);gr.addColorStop(0,"#2a0f3d");gr.addColorStop(.6,"#120a20");gr.addColorStop(1,"#0b0614");x.fillStyle=gr;x.fillRect(0,0,1080,1920);
+  x.save();x.beginPath();x.arc(540,800,360,0,Math.PI*2);x.clip();const sg=x.createLinearGradient(0,440,0,1160);sg.addColorStop(0,"#ff2e88");sg.addColorStop(1,"#ffb347");x.fillStyle=sg;x.fillRect(0,0,1080,1920);
+  x.fillStyle="#120a20";for(let i=0;i<9;i++)x.fillRect(0,860+i*34,1080,6+i*2.4);x.restore();
+  x.fillStyle="#0b0614";x.fillRect(0,1160,1080,760);
+  x.strokeStyle="rgba(32,227,210,.5)";x.lineWidth=3;for(let i=-12;i<=12;i++){x.beginPath();x.moveTo(540,1160);x.lineTo(540+i*150,1920);x.stroke()}for(const y of[1190,1250,1340,1470,1650,1900]){x.beginPath();x.moveTo(0,y);x.lineTo(1080,y);x.stroke()}
+  x.textAlign="center";x.fillStyle="#f6eefe";x.font="700 46px -apple-system,Helvetica,Arial";x.fillText((p.onlineId||"Spieler")+" · GTA VI",540,190);
+  x.font="900 180px -apple-system,Helvetica,Arial";x.fillText(S.pct+"%",540,410);
+  x.font="600 42px -apple-system,Helvetica,Arial";x.fillStyle="#d9cdea";x.fillText("der Story geschafft",540,475);
+  const box=(bx,by,big,small)=>{x.fillStyle="rgba(22,13,36,.92)";rr(bx,by,300,200,36);x.fill();x.strokeStyle="#2c1d44";x.stroke();x.fillStyle="#f6eefe";x.font="900 68px -apple-system,Helvetica,Arial";x.fillText(big,bx+150,by+105);x.fillStyle="#a593c2";x.font="600 32px -apple-system,Helvetica,Arial";x.fillText(small,bx+150,by+155)};
+  const tr=trophies();
+  box(60,1300,S.cur?"Kap. "+S.cur.n:"✓","Kapitel");box(390,1300,tr.filter(t=>t.earned).length+"/"+tr.length,"Trophäen");box(720,1300,Math.round((g.minutes||0)/60)+"h","gespielt");
+  x.fillStyle="#f6eefe";x.font="800 52px -apple-system,Helvetica,Arial";x.fillText(S.cur?S.cur.title:"Story durch 👑",540,1620);
+  x.fillStyle="#a593c2";x.font="600 34px -apple-system,Helvetica,Arial";x.fillText("Vice Tracker",540,1820);
+  const blob=await new Promise(r=>c.toBlob(r,"image/png"));const file=new File([blob],"gta6-fortschritt.png",{type:"image/png"});
+  if(navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],title:"Mein GTA VI Fortschritt"})}catch{}}
+  else{const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=file.name;a.click();toast("Bild gespeichert")}
+}
+
+function go(v){document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));document.querySelectorAll(".view").forEach(s=>s.classList.toggle("on",s.id==="v-"+v));scrollTo({top:0,behavior:"smooth"});store.set("vt-tab",v)}
 document.addEventListener("click",e=>{
-  const nb=e.target.closest("nav button");
-  if(nb){document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b===nb));document.querySelectorAll(".view").forEach(v=>v.classList.toggle("on",v.id==="v-"+nb.dataset.v));scrollTo({top:0,behavior:"smooth"});return}
-  const c=e.target.closest(".chip"); if(c){filter=c.dataset.f;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===c));list();return}
-  const sp=e.target.closest("[data-spoil]"); if(sp){spoil[sp.dataset.spoil]=1;renderStory();document.querySelector(`[data-chap="${sp.dataset.spoil}"]`).classList.add("open");return}
-  const tk=e.target.closest("[data-tick]"); if(tk){const k=tk.dataset.tick;ticks[k]=!ticks[k];if(!ticks[k])delete ticks[k];saveTicks();renderStory();return}
-  const ch=e.target.closest(".chead"); if(ch){ch.parentNode.classList.toggle("open");return}
-  const t=e.target.closest("[data-id]"); if(t){openSheet(t.dataset.id);return}
-  if(e.target.id==="sheet") $("#sheet").classList.remove("on");
+  const nb=e.target.closest("nav button");if(nb){go(nb.dataset.v);return}
+  if(e.target.closest("#h-next")||e.target.closest("[data-go]")){go("story");return}
+  const rv=e.target.closest("[data-reveal]");if(rv){showHidden=true;store.set("vt-spoil",true);openSheet(rv.dataset.reveal);renderTro();renderHome();renderDuo();return}
+  if(e.target.id==="sheet"){$("#sheet").classList.remove("on");return}
+  const c=e.target.closest(".chip[data-f]");if(c){const f=c.dataset.f;if(f==="spoil"){showHidden=!showHidden;store.set("vt-spoil",showHidden);toast(showHidden?"Versteckte Trophäen sichtbar":"Spoiler ausgeblendet");renderTro();renderDuo();renderHome();return}filter=f;renderTro();return}
+  const gc=e.target.closest(".chip[data-g]");if(gc){gfilter=gc.dataset.g;renderMore();return}
+  const ct=e.target.closest("[data-cat]");if(ct){cat=cat===ct.dataset.cat?null:ct.dataset.cat;renderTro();return}
+  const sp=e.target.closest("[data-spoil]");if(sp){spoil[sp.dataset.spoil]=1;renderStory();return}
+  const tk=e.target.closest("[data-tick]");if(tk){const k=tk.dataset.tick;ticks[k]=!ticks[k];if(!ticks[k])delete ticks[k];store.set("vt-ticks",ticks);renderStory();renderHome();renderDuo();toast(ticks[k]?"Mission abgehakt ✓":"Haken entfernt");return}
+  const ch=e.target.closest(".chead");if(ch){ch.parentNode.classList.toggle("open");return}
+  const t=e.target.closest("[data-id]");if(t){openSheet(t.dataset.id);return}
 });
 $("#q").addEventListener("input",list);
+$("#share").onclick=()=>D&&D.gta&&shareCard();
+$("#reload").onclick=async()=>{const r=await load();D=r.data;H=r.hist||[];render();toast("Neu geladen")};
+document.addEventListener("visibilitychange",async()=>{if(document.visibilityState==="visible"&&D&&!D.demo){const r=await load();if(r.data.updated!==D.updated){D=r.data;H=r.hist||[];render();toast("Neue Daten da")}}});
 
-load().then(r=>{D=r.data;H=r.hist||[];render()});
-if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
+load().then(r=>{D=r.data;H=r.hist||[];render();const t=store.get("vt-tab","home");if(t!=="home"&&$("#v-"+t))go(t)});
+if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js").catch(()=>{});
 </script>
 </body>
 </html>

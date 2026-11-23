@@ -11,6 +11,7 @@ import {
   getUserTrophyProfileSummary,
   getUserPlayedGames,
   getProfileFromAccountId,
+  getBasicPresence,
 } from "psn-api";
 
 const NPSSO = process.env.PSN_NPSSO;
@@ -36,7 +37,20 @@ try {
     onlineId = p.onlineId;
     avatar = p.avatars?.sort((a, b) => parseInt(b.size) - parseInt(a.size))[0]?.url ?? null;
   } catch {}
+  let presence = null;
+  try {
+    const pr = (await getBasicPresence(auth, summary.accountId)).basicPresence;
+    const g = Array.isArray(pr.gameTitleInfoList) ? pr.gameTitleInfoList[0] : null;
+    presence = {
+      online: (pr.primaryPlatformInfo?.onlineStatus || pr.onlineStatus) === "online",
+      platform: pr.primaryPlatformInfo?.platform || pr.platform || null,
+      lastOnline: pr.primaryPlatformInfo?.lastOnlineDate || pr.lastOnlineDate || null,
+      game: g ? g.titleName : null,
+      gameIcon: g ? (g.conceptIconUrl || g.npTitleIconUrl || null) : null,
+    };
+  } catch (e) { console.warn("Status nicht verfügbar:", e.message); }
   profile = {
+    presence,
     onlineId,
     avatar,
     level: summary.trophyLevel,
@@ -86,6 +100,8 @@ const games = titles.map((t) => {
     defined: t.definedTrophies,
     lastPlayed: t.lastUpdatedDateTime,
     minutes: parseDuration(pg?.playDuration),
+    firstPlayed: pg?.firstPlayedDateTime ?? null,
+    lastPlayedGame: pg?.lastPlayedDateTime ?? null,
   };
 });
 
