@@ -1,6 +1,13 @@
 {
- "updated": "2026-11-23T09:02:37.214Z",
+ "updated": "2026-11-23T09:22:17.514Z",
  "profile": {
+  "presence": {
+   "online": false,
+   "platform": "PS5",
+   "lastOnline": "2026-11-22T19:57:59.409Z",
+   "game": null,
+   "gameIcon": null
+  },
   "onlineId": "Stein_fsx11",
   "avatar": "http://static-resource.np.community.playstation.net/avatar_s/WWS_A/A2001_s.png",
   "level": 133,
@@ -34,6 +41,8 @@
   },
   "lastPlayed": "2026-11-22T19:46:34Z",
   "minutes": 1983,
+  "firstPlayed": "2026-11-19T13:49:41.290000Z",
+  "lastPlayedGame": "2026-11-22T19:57:57.750000Z",
   "trophies": [
    {
     "id": 0,
@@ -57,7 +66,7 @@
     "hidden": true,
     "earned": true,
     "earnedAt": "2026-11-18T23:40:35Z",
-    "rarity": 98.4,
+    "rarity": 98.3,
     "progress": null,
     "target": null
    },
@@ -70,7 +79,7 @@
     "hidden": true,
     "earned": true,
     "earnedAt": "2026-11-20T10:22:10Z",
-    "rarity": 41.5,
+    "rarity": 41.6,
     "progress": null,
     "target": null
    },
@@ -135,7 +144,7 @@
     "hidden": true,
     "earned": true,
     "earnedAt": "2026-11-20T17:28:29Z",
-    "rarity": 30.6,
+    "rarity": 30.7,
     "progress": null,
     "target": null
    },
@@ -486,7 +495,7 @@
     "hidden": false,
     "earned": true,
     "earnedAt": "2026-11-20T09:40:42Z",
-    "rarity": 16.6,
+    "rarity": 16.7,
     "progress": null,
     "target": "100"
    },
@@ -629,7 +638,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 9.5,
+    "rarity": 9.6,
     "progress": null,
     "target": null
    },
@@ -773,7 +782,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-11-22T19:46:34Z",
-   "minutes": 1983
+   "minutes": 1983,
+   "firstPlayed": "2026-11-19T13:49:41.290000Z",
+   "lastPlayedGame": "2026-11-22T19:57:57.750000Z"
   },
   {
    "id": "NPWR55017_00",
@@ -795,7 +806,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-11-21T13:54:41Z",
-   "minutes": 93
+   "minutes": 93,
+   "firstPlayed": "2026-11-21T13:43:05.040000Z",
+   "lastPlayedGame": "2026-11-22T15:51:45.100000Z"
   },
   {
    "id": "NPWR41319_00",
@@ -817,7 +830,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-11-20T21:36:14Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR39814_00",
@@ -839,7 +854,9 @@
     "platinum": 0
    },
    "lastPlayed": "2026-11-10T11:56:56Z",
-   "minutes": 100
+   "minutes": 100,
+   "firstPlayed": "2026-11-10T10:06:22.480000Z",
+   "lastPlayedGame": "2026-11-20T21:51:00.170000Z"
   },
   {
    "id": "NPWR50656_00",
@@ -861,7 +878,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-10-10T19:20:29Z",
-   "minutes": 24
+   "minutes": 24,
+   "firstPlayed": "2026-10-10T19:20:04.080000Z",
+   "lastPlayedGame": "2026-10-24T17:14:58.910000Z"
   },
   {
    "id": "NPWR27427_00",
@@ -883,7 +902,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-10-05T18:59:41Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR57637_00",
@@ -905,7 +926,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-09-30T17:58:24Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR24071_00",
@@ -927,7 +950,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-09-18T07:09:57Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR59122_00",
@@ -949,7 +974,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-09-13T18:18:41Z",
-   "minutes": 2
+   "minutes": 2,
+   "firstPlayed": "2026-09-13T18:18:34.580000Z",
+   "lastPlayedGame": "2026-09-13T18:20:08.930000Z"
   },
   {
    "id": "NPWR20241_00",
@@ -971,7 +998,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-09-13T18:00:26Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR35812_00",
@@ -993,7 +1022,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-08-27T21:23:01Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR54593_00",
@@ -1015,7 +1046,9 @@
     "platinum": 0
    },
    "lastPlayed": "2026-08-19T12:35:27Z",
-   "minutes": 124
+   "minutes": 124,
+   "firstPlayed": "2026-08-18T21:23:21.930000Z",
+   "lastPlayedGame": "2026-08-21T16:37:41.180000Z"
   },
   {
    "id": "NPWR23378_00",
@@ -1037,7 +1070,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-08-18T20:51:00Z",
-   "minutes": 172
+   "minutes": 172,
+   "firstPlayed": "2025-01-06T11:01:59.040000Z",
+   "lastPlayedGame": "2026-08-18T20:54:46.760000Z"
   },
   {
    "id": "NPWR29323_00",
@@ -1059,7 +1094,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-08-14T15:48:35Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR16977_00",
@@ -1081,7 +1118,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-08-08T16:16:49Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR42368_00",
@@ -1103,7 +1142,9 @@
     "platinum": 0
    },
    "lastPlayed": "2026-08-04T15:29:20Z",
-   "minutes": 249
+   "minutes": 249,
+   "firstPlayed": "2024-07-05T12:11:53.820000Z",
+   "lastPlayedGame": "2026-11-10T18:34:51.600000Z"
   },
   {
    "id": "NPWR49547_00",
@@ -1125,7 +1166,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-08-03T22:58:26Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR50312_00",
@@ -1147,7 +1190,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-07-30T19:06:42Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR49549_00",
@@ -1169,7 +1214,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-07-13T20:56:27Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR50313_00",
@@ -1191,7 +1238,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-07-12T02:13:06Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR23198_00",
@@ -1213,7 +1262,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-06-28T20:46:44Z",
-   "minutes": 2622
+   "minutes": 2622,
+   "firstPlayed": "2023-10-03T11:46:44.600000Z",
+   "lastPlayedGame": "2026-10-13T19:22:26.720000Z"
   },
   {
    "id": "NPWR23200_00",
@@ -1235,7 +1286,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-06-04T08:38:25Z",
-   "minutes": 2622
+   "minutes": 2622,
+   "firstPlayed": "2023-10-03T11:46:44.600000Z",
+   "lastPlayedGame": "2026-10-13T19:22:26.720000Z"
   },
   {
    "id": "NPWR09412_00",
@@ -1257,7 +1310,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-05-30T19:39:35Z",
-   "minutes": 48
+   "minutes": 48,
+   "firstPlayed": "2026-05-30T18:53:38.690000Z",
+   "lastPlayedGame": "2026-05-30T18:53:38.690000Z"
   },
   {
    "id": "NPWR08899_00",
@@ -1279,7 +1334,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-05-25T19:23:29Z",
-   "minutes": 88
+   "minutes": 88,
+   "firstPlayed": "2026-05-25T00:28:16.760000Z",
+   "lastPlayedGame": "2026-05-25T00:28:16.760000Z"
   },
   {
    "id": "NPWR11619_00",
@@ -1301,7 +1358,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-05-21T23:31:01Z",
-   "minutes": 589
+   "minutes": 589,
+   "firstPlayed": "2022-12-25T17:27:51.280000Z",
+   "lastPlayedGame": "2026-05-29T19:54:36.640000Z"
   },
   {
    "id": "NPWR08801_00",
@@ -1323,7 +1382,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-05-20T21:37:16Z",
-   "minutes": 35
+   "minutes": 35,
+   "firstPlayed": "2026-03-17T23:39:44.460000Z",
+   "lastPlayedGame": "2026-05-20T20:45:10.880000Z"
   },
   {
    "id": "NPWR29913_00",
@@ -1345,7 +1406,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-05-13T22:19:28Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR49542_00",
@@ -1367,7 +1430,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-05-13T18:37:15Z",
-   "minutes": 69
+   "minutes": 69,
+   "firstPlayed": "2026-05-13T20:49:24.960000Z",
+   "lastPlayedGame": "2026-05-15T02:03:57.490000Z"
   },
   {
    "id": "NPWR04841_00",
@@ -1389,7 +1454,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-05-11T01:22:57Z",
-   "minutes": 171
+   "minutes": 171,
+   "firstPlayed": "2026-05-11T00:57:56.600000Z",
+   "lastPlayedGame": "2026-05-13T00:07:33.600000Z"
   },
   {
    "id": "NPWR19743_00",
@@ -1411,7 +1478,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-05-11T00:38:27Z",
-   "minutes": 5
+   "minutes": 5,
+   "firstPlayed": "2023-05-07T11:01:25.860000Z",
+   "lastPlayedGame": "2026-05-11T00:28:28.510000Z"
   },
   {
    "id": "NPWR06418_00",
@@ -1433,7 +1502,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-04-25T03:05:17Z",
-   "minutes": 863
+   "minutes": 863,
+   "firstPlayed": "2026-04-24T15:50:13.850000Z",
+   "lastPlayedGame": "2026-06-15T17:59:47.420000Z"
   },
   {
    "id": "NPWR06221_00",
@@ -1455,7 +1526,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-04-15T00:48:15Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR27446_00",
@@ -1477,7 +1550,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-02-23T00:53:21Z",
-   "minutes": 14
+   "minutes": 14,
+   "firstPlayed": "2026-02-08T15:22:55.890000Z",
+   "lastPlayedGame": "2026-02-16T03:14:29.330000Z"
   },
   {
    "id": "NPWR11424_00",
@@ -1499,7 +1574,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-02-21T21:08:28Z",
-   "minutes": 257
+   "minutes": 257,
+   "firstPlayed": "2024-10-21T23:19:20.040000Z",
+   "lastPlayedGame": "2026-02-26T21:34:58.200000Z"
   },
   {
    "id": "NPWR38289_00",
@@ -1521,7 +1598,9 @@
     "platinum": 0
    },
    "lastPlayed": "2026-02-08T20:17:44Z",
-   "minutes": 100
+   "minutes": 100,
+   "firstPlayed": "2026-11-10T10:06:22.480000Z",
+   "lastPlayedGame": "2026-11-20T21:51:00.170000Z"
   },
   {
    "id": "NPWR05866_00",
@@ -1543,7 +1622,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-01-22T02:05:30Z",
-   "minutes": 31
+   "minutes": 31,
+   "firstPlayed": "2023-05-20T11:19:31.180000Z",
+   "lastPlayedGame": "2026-01-22T01:57:56.660000Z"
   },
   {
    "id": "NPWR19232_00",
@@ -1565,7 +1646,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-01-20T22:59:08Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR05706_00",
@@ -1587,7 +1670,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-01-02T16:33:50Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR35811_00",
@@ -1609,7 +1694,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-10-22T02:42:44Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR35518_00",
@@ -1631,7 +1718,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-10-21T20:32:26Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR07028_00",
@@ -1653,7 +1742,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-10-03T20:50:33Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR07466_00",
@@ -1675,7 +1766,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-10-03T11:07:12Z",
-   "minutes": 5865
+   "minutes": 5865,
+   "firstPlayed": "2022-12-31T11:56:12.570000Z",
+   "lastPlayedGame": "2026-11-11T20:08:31.580000Z"
   },
   {
    "id": "NPWR44444_00",
@@ -1697,7 +1790,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-09-18T10:51:37Z",
-   "minutes": 36
+   "minutes": 36,
+   "firstPlayed": "2025-09-18T10:46:23.770000Z",
+   "lastPlayedGame": "2025-09-26T19:45:08.160000Z"
   },
   {
    "id": "NPWR20813_00",
@@ -1719,7 +1814,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-09-13T11:11:18Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR41872_00",
@@ -1741,7 +1838,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-07-05T21:37:15Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR41873_00",
@@ -1763,7 +1862,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-07-02T22:02:37Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR24223_00",
@@ -1785,7 +1886,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-05-29T16:00:14Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR50795_00",
@@ -1807,7 +1910,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-05-27T17:12:14Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR21465_00",
@@ -1829,7 +1934,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-05-24T09:29:37Z",
-   "minutes": 115
+   "minutes": 115,
+   "firstPlayed": "2024-07-03T08:38:49.500000Z",
+   "lastPlayedGame": "2025-05-24T09:29:52.870000Z"
   },
   {
    "id": "NPWR10664_00",
@@ -1851,7 +1958,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-05-21T18:41:58Z",
-   "minutes": 104
+   "minutes": 104,
+   "firstPlayed": "2025-05-21T17:45:45.510000Z",
+   "lastPlayedGame": "2025-05-23T08:27:03.460000Z"
   },
   {
    "id": "NPWR25226_00",
@@ -1873,7 +1982,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-05-20T21:50:58Z",
-   "minutes": 75
+   "minutes": 75,
+   "firstPlayed": "2024-09-11T13:24:14.710000Z",
+   "lastPlayedGame": "2025-05-20T22:08:26.840000Z"
   },
   {
    "id": "NPWR22610_00",
@@ -1895,7 +2006,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-05-11T19:17:54Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR35517_00",
@@ -1917,7 +2030,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-04-28T16:50:40Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR16870_00",
@@ -1939,7 +2054,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-04-13T16:44:25Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR25488_00",
@@ -1961,7 +2078,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-01-07T14:52:04Z",
-   "minutes": 3
+   "minutes": 3,
+   "firstPlayed": "2025-01-07T14:52:02.730000Z",
+   "lastPlayedGame": "2025-01-07T14:54:59.300000Z"
   },
   {
    "id": "NPWR22385_00",
@@ -1983,7 +2102,9 @@
     "platinum": 1
    },
    "lastPlayed": "2025-01-06T13:22:11Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR20954_00",
@@ -2005,7 +2126,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-12-28T02:04:24Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR42737_00",
@@ -2027,7 +2150,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-12-24T16:57:52Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": "2024-12-24T16:57:46.060000Z",
+   "lastPlayedGame": "2024-12-25T15:14:18.180000Z"
   },
   {
    "id": "NPWR29806_00",
@@ -2049,7 +2174,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-12-07T23:04:01Z",
-   "minutes": 42
+   "minutes": 42,
+   "firstPlayed": "2024-12-07T22:25:55.500000Z",
+   "lastPlayedGame": "2024-12-07T23:09:01.250000Z"
   },
   {
    "id": "NPWR15793_00",
@@ -2071,7 +2198,9 @@
     "platinum": 0
    },
    "lastPlayed": "2024-11-24T14:31:10Z",
-   "minutes": 8
+   "minutes": 8,
+   "firstPlayed": "2024-11-24T14:28:58.780000Z",
+   "lastPlayedGame": "2024-12-22T12:20:02.800000Z"
   },
   {
    "id": "NPWR05542_00",
@@ -2093,7 +2222,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-10-18T19:00:32Z",
-   "minutes": 21
+   "minutes": 21,
+   "firstPlayed": "2024-10-18T18:41:57.760000Z",
+   "lastPlayedGame": "2024-10-18T19:07:03.010000Z"
   },
   {
    "id": "NPWR38397_00",
@@ -2115,7 +2246,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-10-04T21:39:46Z",
-   "minutes": 50
+   "minutes": 50,
+   "firstPlayed": "2024-10-04T21:39:42.710000Z",
+   "lastPlayedGame": "2024-10-16T18:02:51.510000Z"
   },
   {
    "id": "NPWR21249_00",
@@ -2137,7 +2270,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-09-15T10:53:39Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR21647_00",
@@ -2159,7 +2294,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-09-10T13:05:37Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR38031_00",
@@ -2181,7 +2318,9 @@
     "platinum": 0
    },
    "lastPlayed": "2024-07-18T00:28:33Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR21190_00",
@@ -2203,7 +2342,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-07-07T11:15:23Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR25959_00",
@@ -2225,7 +2366,9 @@
     "platinum": 0
    },
    "lastPlayed": "2024-07-06T21:18:45Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR15895_00",
@@ -2247,7 +2390,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-07-04T18:29:00Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR22859_00",
@@ -2269,7 +2414,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-07-04T13:16:37Z",
-   "minutes": 166
+   "minutes": 166,
+   "firstPlayed": "2024-07-03T07:15:57.660000Z",
+   "lastPlayedGame": "2024-09-17T11:17:36.470000Z"
   },
   {
    "id": "NPWR24913_00",
@@ -2291,7 +2438,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-07-03T13:04:57Z",
-   "minutes": 7
+   "minutes": 7,
+   "firstPlayed": "2024-07-03T12:59:19.500000Z",
+   "lastPlayedGame": "2024-07-03T13:06:26.400000Z"
   },
   {
    "id": "NPWR05657_00",
@@ -2313,7 +2462,9 @@
     "platinum": 0
    },
    "lastPlayed": "2024-06-23T15:45:39Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR27329_00",
@@ -2335,7 +2486,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-06-22T19:27:15Z",
-   "minutes": 8
+   "minutes": 8,
+   "firstPlayed": "2024-06-22T19:24:57.290000Z",
+   "lastPlayedGame": "2024-06-22T19:32:47.200000Z"
   },
   {
    "id": "NPWR28517_00",
@@ -2357,7 +2510,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-06-13T16:21:16Z",
-   "minutes": 40
+   "minutes": 40,
+   "firstPlayed": "2024-06-13T13:30:31.640000Z",
+   "lastPlayedGame": "2024-06-23T11:33:28.630000Z"
   },
   {
    "id": "NPWR24633_00",
@@ -2379,7 +2534,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-06-13T06:52:17Z",
-   "minutes": 21
+   "minutes": 21,
+   "firstPlayed": "2023-05-07T06:11:51.620000Z",
+   "lastPlayedGame": "2025-10-26T22:11:33.460000Z"
   },
   {
    "id": "NPWR33472_00",
@@ -2401,7 +2558,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-05-31T11:53:19Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR20494_00",
@@ -2423,7 +2582,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-05-26T14:43:06Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR16639_00",
@@ -2445,7 +2606,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-05-26T07:01:42Z",
-   "minutes": 2
+   "minutes": 2,
+   "firstPlayed": "2024-05-26T07:01:08.170000Z",
+   "lastPlayedGame": "2024-05-26T08:08:31.410000Z"
   },
   {
    "id": "NPWR14350_00",
@@ -2467,7 +2630,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-04-27T03:04:35Z",
-   "minutes": 5068
+   "minutes": 5068,
+   "firstPlayed": "2022-12-27T15:50:28.930000Z",
+   "lastPlayedGame": "2026-08-30T18:30:26.110000Z"
   },
   {
    "id": "NPWR20188_00",
@@ -2489,7 +2654,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-02-18T11:35:29Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR18041_00",
@@ -2511,7 +2678,9 @@
     "platinum": 1
    },
    "lastPlayed": "2024-02-17T22:18:31Z",
-   "minutes": 822
+   "minutes": 822,
+   "firstPlayed": "2022-12-25T11:48:43.200000Z",
+   "lastPlayedGame": "2024-05-27T13:04:27.410000Z"
   },
   {
    "id": "NPWR28403_00",
@@ -2533,7 +2702,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-11-05T18:29:51Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR20684_00",
@@ -2555,7 +2726,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-11-03T13:54:30Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR12518_00",
@@ -2577,7 +2750,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-09-08T20:38:20Z",
-   "minutes": 81
+   "minutes": 81,
+   "firstPlayed": "2023-09-06T17:33:26.820000Z",
+   "lastPlayedGame": "2025-01-06T11:04:18.450000Z"
   },
   {
    "id": "NPWR21255_00",
@@ -2599,7 +2774,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-09-08T11:07:09Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR12476_00",
@@ -2621,7 +2798,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-09-06T13:14:59Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR13347_00",
@@ -2643,7 +2822,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-09-06T13:12:55Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR13346_00",
@@ -2665,7 +2846,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-09-06T13:12:54Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR25484_00",
@@ -2687,7 +2870,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-05-25T20:07:48Z",
-   "minutes": 142
+   "minutes": 142,
+   "firstPlayed": "2023-05-24T18:26:04.000000Z",
+   "lastPlayedGame": "2023-06-04T15:32:10.440000Z"
   },
   {
    "id": "NPWR10270_00",
@@ -2709,7 +2894,9 @@
     "platinum": 0
    },
    "lastPlayed": "2023-05-20T14:12:43Z",
-   "minutes": 5
+   "minutes": 5,
+   "firstPlayed": "2023-05-20T14:12:32.960000Z",
+   "lastPlayedGame": "2023-05-20T16:24:50.870000Z"
   },
   {
    "id": "NPWR11332_00",
@@ -2731,7 +2918,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-05-14T07:03:27Z",
-   "minutes": 66
+   "minutes": 66,
+   "firstPlayed": "2023-05-14T07:03:17.470000Z",
+   "lastPlayedGame": "2025-10-22T04:22:50.300000Z"
   },
   {
    "id": "NPWR19030_00",
@@ -2753,7 +2942,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-05-07T10:59:21Z",
-   "minutes": 20
+   "minutes": 20,
+   "firstPlayed": "2023-05-07T10:41:13.300000Z",
+   "lastPlayedGame": "2023-05-07T11:01:21.180000Z"
   },
   {
    "id": "NPWR18965_00",
@@ -2775,7 +2966,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-05-07T06:28:23Z",
-   "minutes": 21
+   "minutes": 21,
+   "firstPlayed": "2023-05-07T06:11:51.620000Z",
+   "lastPlayedGame": "2025-10-26T22:11:33.460000Z"
   },
   {
    "id": "NPWR22864_00",
@@ -2797,7 +2990,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-04-04T15:50:09Z",
-   "minutes": 137
+   "minutes": 137,
+   "firstPlayed": "2023-04-04T13:41:12.560000Z",
+   "lastPlayedGame": "2026-07-26T18:07:45.750000Z"
   },
   {
    "id": "NPWR30307_00",
@@ -2819,7 +3014,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-02-08T16:55:19Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR13872_00",
@@ -2841,7 +3038,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-01-14T10:39:13Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR23631_00",
@@ -2863,7 +3062,9 @@
     "platinum": 1
    },
    "lastPlayed": "2023-01-06T09:37:04Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR22022_00",
@@ -2885,7 +3086,9 @@
     "platinum": 1
    },
    "lastPlayed": "2022-12-25T11:42:39Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR20567_00",
@@ -2907,7 +3110,9 @@
     "platinum": 0
    },
    "lastPlayed": "2022-11-30T14:29:34Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR11556_00",
@@ -2929,7 +3134,9 @@
     "platinum": 1
    },
    "lastPlayed": "2022-11-17T19:22:03Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR08306_00",
@@ -2951,7 +3158,9 @@
     "platinum": 1
    },
    "lastPlayed": "2022-09-28T20:06:13Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR16409_00",
@@ -2973,7 +3182,9 @@
     "platinum": 1
    },
    "lastPlayed": "2022-09-27T06:02:06Z",
-   "minutes": 25
+   "minutes": 25,
+   "firstPlayed": "2025-10-12T13:42:19.590000Z",
+   "lastPlayedGame": "2025-10-12T13:50:38.830000Z"
   },
   {
    "id": "NPWR04914_00",
@@ -2995,7 +3206,9 @@
     "platinum": 0
    },
    "lastPlayed": "2022-09-27T06:02:05Z",
-   "minutes": 7
+   "minutes": 7,
+   "firstPlayed": "2020-03-25T15:04:59.750000Z",
+   "lastPlayedGame": "2026-05-14T21:57:55.580000Z"
   },
   {
    "id": "NPWR15848_00",
@@ -3017,7 +3230,9 @@
     "platinum": 0
    },
    "lastPlayed": "2022-09-26T06:08:29Z",
-   "minutes": 0
+   "minutes": 0,
+   "firstPlayed": null,
+   "lastPlayedGame": null
   },
   {
    "id": "NPWR20195_00",
@@ -3039,7 +3254,9 @@
     "platinum": 1
    },
    "lastPlayed": "2022-09-24T17:22:55Z",
-   "minutes": 94
+   "minutes": 94,
+   "firstPlayed": "2026-09-13T18:00:21.940000Z",
+   "lastPlayedGame": "2026-09-14T19:18:22.750000Z"
   },
   {
    "id": "NPWR15235_00",
@@ -3061,7 +3278,9 @@
     "platinum": 1
    },
    "lastPlayed": "2020-05-04T15:54:37Z",
-   "minutes": 14
+   "minutes": 14,
+   "firstPlayed": "2020-03-25T14:17:11.340000Z",
+   "lastPlayedGame": "2020-05-05T16:06:12.220000Z"
   }
  ]
 }
