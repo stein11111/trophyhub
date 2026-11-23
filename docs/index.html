@@ -8,6 +8,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Vice Tracker">
 <meta name="theme-color" content="#0b0614">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Yellowtail&display=swap" rel="stylesheet">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="icon-512.png">
 <title>Vice Tracker</title>
@@ -188,11 +190,74 @@ nav button.on svg{stroke:var(--pink)}
 .sheet .row b{display:block;font-size:15px;color:var(--txt)}
 .toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translateX(-50%);background:var(--card2);border:1px solid var(--line);padding:10px 16px;border-radius:99px;font-size:13px;z-index:20;opacity:0;transition:opacity .25s;pointer-events:none;white-space:nowrap}
 .toast.on{opacity:1}
+
+/* ===== Vice-Look ===== */
+.big{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:44px;letter-spacing:.02em;line-height:.95;margin:6px 0 4px;filter:drop-shadow(0 0 14px rgba(255,46,136,.45))}
+h2{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:22px;letter-spacing:.06em;margin:28px 4px 10px}
+h2 small{font-family:-apple-system,system-ui,sans-serif;letter-spacing:0}
+.kicker{color:#ffb3d4}
+.hero,.card,.stat,.chap,.tro,.nx,.cat,.game,.npc{background-image:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,0))}
+.hero{border:1px solid transparent;background:linear-gradient(180deg,#2a0f3d 0%,#150a25 75%) padding-box,linear-gradient(135deg,rgba(255,46,136,.7),rgba(255,179,71,.25),rgba(32,227,210,.6)) border-box}
+.stat b,.ringbox b,.cstats b,.vs .side b{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:28px;letter-spacing:.03em}
+.ringbox b{font-size:32px}
+.poster{position:relative;margin:0 -16px 16px;height:300px;overflow:hidden;border-radius:0 0 30px 30px}
+.poster svg{position:absolute;inset:0;width:100%;height:100%}
+.poster .wm{position:absolute;left:0;right:0;top:84px;text-align:center;font-family:Yellowtail,cursive;font-size:62px;color:#fff;line-height:1;
+  text-shadow:0 0 6px #fff,0 0 18px #ff2e88,0 0 40px #ff2e88,0 0 70px #ff6a5c;transform:rotate(-6deg)}
+.poster .tagl{position:absolute;left:0;right:0;top:160px;text-align:center;font-family:"Bebas Neue",Impact,sans-serif;font-size:20px;letter-spacing:.5em;color:#e9fffd;text-shadow:0 0 4px #20e3d2,0 0 12px #20e3d2,0 2px 6px rgba(0,0,0,.6)}
+.poster .chipbar{position:absolute;left:16px;right:16px;bottom:14px;display:flex;justify-content:space-between;align-items:center}
+.poster .loc{font-family:"Bebas Neue",Impact,sans-serif;font-size:18px;letter-spacing:.12em;background:rgba(11,6,20,.7);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.12);padding:6px 12px;border-radius:99px}
+.poster .loc i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#ff2e88;box-shadow:0 0 8px #ff2e88;margin-right:7px;vertical-align:1px}
+header{margin-bottom:18px;position:absolute;top:calc(10px + env(safe-area-inset-top));left:16px;right:16px;z-index:3}
+main{padding-top:0}
+.who b{text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.who span{color:#e6d9f5;text-shadow:0 1px 6px rgba(0,0,0,.7)}
+.mono{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:40px;width:72px;height:72px;border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,.08),0 0 30px -4px currentColor}
+.j .mono{color:#0b0614;box-shadow:0 0 0 3px rgba(77,163,255,.35),0 0 30px -2px #4da3ff}
+.l .mono{box-shadow:0 0 0 3px rgba(255,46,136,.35),0 0 30px -2px #ff2e88}
+.ch-top h3{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:36px;letter-spacing:.04em;line-height:1}
+.hero.char{overflow:hidden}
+.hero.char .palm{position:absolute;right:-30px;top:-20px;width:130px;opacity:.09;pointer-events:none}
+nav button.on{background:linear-gradient(180deg,rgba(255,46,136,.22),rgba(255,46,136,.06))}
+.cnum{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:26px}
+.chead b{font-family:"Bebas Neue",Impact,sans-serif;font-weight:400;font-size:22px;letter-spacing:.04em}
 </style>
 </head>
 <body>
 <div class="glow"></div>
 <main>
+<div class="poster" id="poster">
+  <svg viewBox="0 -40 400 290" preserveAspectRatio="xMidYMax slice">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a0b33"/><stop offset=".45" stop-color="#6b1f6e"/><stop offset=".75" stop-color="#ff4f7b"/><stop offset="1" stop-color="#ffae5c"/></linearGradient>
+      <linearGradient id="sunG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1a8"/><stop offset=".5" stop-color="#ffb347"/><stop offset="1" stop-color="#ff2e88"/></linearGradient>
+      <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a1450"/><stop offset="1" stop-color="#0b0614"/></linearGradient>
+      <mask id="sunM"><rect width="400" height="250" fill="#fff"/><g fill="#000"><rect y="158" width="400" height="3"/><rect y="166" width="400" height="4"/><rect y="175" width="400" height="5"/><rect y="185" width="400" height="6"/></g></mask>
+    </defs>
+    <rect y="-40" width="400" height="290" fill="url(#sky)"/>
+    <g fill="#fff" opacity=".7"><circle cx="40" cy="30" r=".9"/><circle cx="110" cy="18" r=".7"/><circle cx="300" cy="26" r="1"/><circle cx="360" cy="50" r=".7"/><circle cx="230" cy="12" r=".6"/><circle cx="70" cy="64" r=".6"/></g>
+    <circle cx="200" cy="190" r="78" fill="url(#sunG)" mask="url(#sunM)"/>
+    <g fill="#1a0a2a">
+      <rect x="20" y="168" width="16" height="32"/><rect x="38" y="156" width="12" height="44"/><rect x="52" y="174" width="20" height="26"/>
+      <rect x="282" y="160" width="14" height="40"/><rect x="298" y="148" width="10" height="52"/><rect x="310" y="166" width="22" height="34"/><rect x="334" y="172" width="12" height="28"/><rect x="348" y="158" width="16" height="42"/>
+    </g>
+    <g fill="#ff7ab4" opacity=".55"><rect x="41" y="162" width="2" height="2"/><rect x="45" y="170" width="2" height="2"/><rect x="301" y="156" width="2" height="2"/><rect x="301" y="166" width="2" height="2"/><rect x="352" y="166" width="2" height="2"/><rect x="314" y="174" width="2" height="2"/></g>
+    <rect y="200" width="400" height="50" fill="url(#sea)"/>
+    <g stroke="#ff9ac4" stroke-width="1.2" opacity=".5"><line x1="160" y1="206" x2="240" y2="206"/><line x1="172" y1="214" x2="228" y2="214"/><line x1="184" y1="222" x2="216" y2="222"/></g>
+    <g fill="#0b0614">
+      <path d="M88 250 C92 210 96 170 108 128 L112 129 C102 172 100 212 98 250Z"/>
+      <path d="M110 128 C94 116 70 116 52 128 C72 120 92 122 108 132Z"/><path d="M110 128 C100 108 80 98 60 100 C82 104 98 114 108 132Z"/>
+      <path d="M110 128 C124 110 146 106 166 114 C146 112 128 118 112 132Z"/><path d="M110 128 C126 124 148 130 160 146 C144 136 126 132 112 132Z"/><path d="M110 128 C112 108 124 94 138 88 C126 100 118 114 112 130Z"/>
+      <path d="M318 250 C314 214 306 182 292 150 L296 148 C312 180 320 214 326 250Z"/>
+      <path d="M294 149 C280 136 258 134 240 142 C260 138 278 142 292 154Z"/><path d="M294 149 C288 130 272 118 252 116 C272 124 286 136 292 154Z"/>
+      <path d="M294 149 C308 134 330 130 350 138 C330 136 312 142 296 154Z"/><path d="M294 149 C312 148 332 156 342 172 C326 160 310 156 296 154Z"/>
+      <path d="M0 250 L0 214 C40 206 70 212 110 222 C150 230 190 226 220 236 L240 250Z" opacity=".9"/>
+    </g>
+  </svg>
+  <div class="wm">Vice Tracker</div>
+  <div class="tagl">LEONIDA</div>
+  <div class="chipbar"><span class="loc" id="pst-l"><i></i>Kapitel –</span><span class="loc" id="pst-r">–</span></div>
+</div>
   <header>
     <div class="avatar" id="avatar">V</div>
     <div class="who"><b id="name">Spieler</b><span id="status">lädt …</span></div>
@@ -458,6 +523,8 @@ function renderHome(){
   const g=D.gta,tr=trophies(),done=tr.filter(t=>t.earned),S=storyState();
   $("#h-chap").textContent=S.cur?"Kapitel "+S.cur.n+" von 5":"Story durch! 👑";
   $("#h-chapname").textContent=S.cur?S.cur.title:"Alle Kapitel abgeschlossen";
+  $("#pst-l").innerHTML="<i></i>"+(S.cur?"Kapitel "+S.cur.n+" · "+S.pct+" %":"Story durch");
+  $("#pst-r").textContent=fmtMin(g.minutes)+" gespielt";
   $("#h-miles").innerHTML=S.chs.map(c=>`<div class="${c.done?"d":S.cur&&c.n===S.cur.n?"c":""}"></div>`).join("");
   ringSet($("#r-story"),S.pct);countUp($("#h-story"),S.pct,"%");
   ringSet($("#r-tro"),g.progress||0);countUp($("#h-tro"),g.progress||0,"%");
@@ -526,7 +593,7 @@ function renderDuo(){
   $("#vs-split").innerHTML=sum?`<i style="width:${J.ok/sum*100}%;background:var(--jason)"></i><i style="width:${L.ok/sum*100}%;background:var(--lucia)"></i>`:`<i style="width:50%;background:rgba(77,163,255,.25)"></i><i style="width:50%;background:rgba(255,46,136,.25)"></i>`;
   $("#vs-txt").textContent=`Dazu ${both.filter(m=>m.ok).length} von ${both.length} gemeinsamen Missionen erledigt. Getrennte Missionen für Jason und Lucia gibt es ab Kapitel 3.`;
   $("#chars").innerHTML=["J","L"].map(k=>{const c=CHARS[k],s=k==="J"?J:L,first=c.name.split(" ")[0];
-    return`<h2>${c.name} <small>${c.role}</small></h2><div class="hero char ${c.cls}"><div class="ch-top"><div class="mono">${c.ini}</div><div><h3>${first}</h3><small>${s.ok} von ${s.tot} eigenen Missionen</small></div></div><p class="bio">${c.bio}</p><div class="cstats"><div><b>${s.ok}</b><span>geschafft</span></div><div><b>${s.curLeft.length}</b><span>offen in Kap. ${S.cur?S.cur.n:"–"}</span></div><div><b>${s.tot-s.ok}</b><span>insgesamt offen</span></div></div>${s.next?`<div class="nextm" data-go="story"><div style="flex:1;min-width:0"><small>Nächste ${first}-Mission</small><b>${S.cur&&s.next.ch>S.cur.n&&!spoil[s.next.ch]?"🙈 Spoiler – kommt in Kapitel "+s.next.ch:esc(s.next.name)}</b></div><span class="pill">Kap. ${s.next.ch}</span></div>`:""}</div>`}).join("");
+    return`<h2>${c.name} <small>${c.role}</small></h2><div class="hero char ${c.cls}"><svg class="palm" viewBox="0 0 120 160" fill="currentColor"><path d="M52 160 C55 120 58 90 66 56 L70 57 C63 92 61 122 60 160Z"/><path d="M68 56 C52 44 28 44 10 56 C30 48 50 50 66 60Z"/><path d="M68 56 C58 36 38 26 18 28 C40 32 56 42 66 60Z"/><path d="M68 56 C82 38 104 34 120 42 C104 40 86 46 70 60Z"/><path d="M68 56 C84 52 106 58 116 74 C100 64 84 60 70 60Z"/></svg><div class="ch-top"><div class="mono">${c.ini}</div><div><h3>${first}</h3><small>${s.ok} von ${s.tot} eigenen Missionen</small></div></div><p class="bio">${c.bio}</p><div class="cstats"><div><b>${s.ok}</b><span>geschafft</span></div><div><b>${s.curLeft.length}</b><span>offen in Kap. ${S.cur?S.cur.n:"–"}</span></div><div><b>${s.tot-s.ok}</b><span>insgesamt offen</span></div></div>${s.next?`<div class="nextm" data-go="story"><div style="flex:1;min-width:0"><small>Nächste ${first}-Mission</small><b>${S.cur&&s.next.ch>S.cur.n&&!spoil[s.next.ch]?"🙈 Spoiler – kommt in Kapitel "+s.next.ch:esc(s.next.name)}</b></div><span class="pill">Kap. ${s.next.ch}</span></div>`:""}</div>`}).join("");
   $("#duo-tro").innerHTML=DUO_TRO.map(id=>tr.find(t=>t.id===id)).filter(Boolean).map(t=>row(t)).join("");
   $("#npcs").innerHTML=PEOPLE.map(([id,n])=>{const t=tr.find(x=>x.id===id),ok=t&&t.earned;return`<div class="npc ${ok?"ok":""}" data-id="${id}"><div class="ini">${ok?"✓":n[0]}</div><div class="t"><b>${n}</b><small>${ok?"Abgeschlossen · "+fmtDate(t.earnedAt):id===28?"Besonderes Tier jagen":"Letzte Mission noch offen"}</small></div>${t&&t.rarity!=null?`<span class="rare ${rareCls(t.rarity)}">${de(t.rarity)} %</span>`:""}</div>`}).join("");
 }
@@ -606,7 +673,7 @@ async function shareCard(){
   else{const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=file.name;a.click();toast("Bild gespeichert")}
 }
 
-function go(v){document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));document.querySelectorAll(".view").forEach(s=>s.classList.toggle("on",s.id==="v-"+v));scrollTo({top:0,behavior:"smooth"});store.set("vt-tab",v)}
+function go(v){$("#poster").style.display=v==="home"?"":"none";document.querySelector("header").style.position=v==="home"?"absolute":"relative";document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b.dataset.v===v));document.querySelectorAll(".view").forEach(s=>s.classList.toggle("on",s.id==="v-"+v));scrollTo({top:0,behavior:"smooth"});store.set("vt-tab",v)}
 document.addEventListener("click",e=>{
   const nb=e.target.closest("nav button");if(nb){go(nb.dataset.v);return}
   if(e.target.closest("#h-next")||e.target.closest("[data-go]")){go("story");return}
