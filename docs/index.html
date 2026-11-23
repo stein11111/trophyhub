@@ -104,6 +104,29 @@ nav button.on svg{stroke:var(--pink)}
 .sheet .row{display:flex;justify-content:space-around;font-size:13px}
 .sheet .row div{text-align:center}
 .sheet .row b{display:block;font-size:16px}
+
+.chap{background:var(--card);border:1px solid var(--line);border-radius:20px;margin-top:12px;overflow:hidden}
+.chap.cur{border-color:var(--pink);box-shadow:0 0 0 1px var(--pink),0 10px 30px -12px rgba(255,46,136,.5)}
+.chead{display:flex;align-items:center;gap:12px;padding:14px;cursor:pointer}
+.cnum{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-weight:900;font-size:17px;background:var(--card2);flex:none}
+.chap.done .cnum{background:linear-gradient(135deg,#20e3d2,#1a9e94);color:#05201d}
+.chap.cur .cnum{background:var(--sun);color:#1a0610}
+.chead .t{flex:1;min-width:0}
+.chead b{display:block;font-size:15px}
+.chead small{font-size:12px;color:var(--mute)}
+.badge{font-size:11px;font-weight:800;padding:4px 9px;border-radius:99px;white-space:nowrap}
+.b-done{background:rgba(32,227,210,.15);color:var(--teal)}
+.b-cur{background:rgba(255,46,136,.18);color:#ff7ab4}
+.b-next{background:var(--card2);color:var(--mute)}
+.mlist{display:none;padding:0 14px 14px}
+.chap.open .mlist{display:block}
+.mi{display:flex;align-items:center;gap:10px;padding:9px 4px;border-top:1px solid var(--line);font-size:14px}
+.mi .ck{width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-size:12px;font-weight:900}
+.mi.ok .ck{background:var(--teal);border-color:var(--teal);color:#05201d}
+.mi.ok span.n{color:var(--mute)}
+.mi .tag{margin-left:auto;font-size:10px;color:var(--mute);border:1px solid var(--line);border-radius:6px;padding:1px 5px;flex:none}
+.mi .tr{margin-left:auto;font-size:11px;flex:none}
+.spoil{width:100%;margin-top:6px;padding:12px;border-radius:14px;border:1px dashed var(--line);background:none;color:var(--mute);font-size:13px;font-weight:600}
 </style>
 </head>
 <body>
@@ -145,6 +168,20 @@ nav button.on svg{stroke:var(--pink)}
     <div id="recent"></div>
   </section>
 
+
+  <!-- Story -->
+  <section class="view" id="v-story">
+    <div class="hero" style="padding-bottom:18px">
+      <h1>Story-Fortschritt</h1>
+      <div class="title" id="st-title" style="margin-bottom:6px">Kapitel –</div>
+      <div style="color:var(--mute);font-size:13px" id="st-sub"></div>
+      <div class="bar" style="height:10px;margin-top:14px"><i id="st-bar" style="width:0%;transition:width 1s"></i></div>
+      <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--mute);margin-top:6px"><span id="st-count"></span><span id="st-pct"></span></div>
+    </div>
+    <div id="chapters"></div>
+    <div class="foot">Kapitel-Stand kommt automatisch aus deinen Trophäen. Missionen im aktuellen Kapitel kannst du antippen, um sie abzuhaken. Missionsliste laut Guides, sie kann leicht abweichen.</div>
+  </section>
+
   <!-- Trophäen -->
   <section class="view" id="v-tro">
     <h2 style="margin-top:4px">Alle GTA-VI-Trophäen <small id="trocount"></small></h2>
@@ -164,6 +201,7 @@ nav button.on svg{stroke:var(--pink)}
 
 <nav>
   <button class="on" data-v="home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Fortschritt</button>
+  <button data-v="story"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21V5M9 8h6M9 12h5"/></svg>Story</button>
   <button data-v="tro"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg>Trophäen</button>
   <button data-v="games"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 11v3M5.5 12.5h3M15 12h.01M18 13h.01"/></svg>Spiele</button>
 </nav>
@@ -193,6 +231,55 @@ async function load(){
     const [d,h]=await Promise.all([fetch("data.json?"+Date.now()).then(r=>{if(!r.ok)throw 0;return r.json()}),fetch("history.json?"+Date.now()).then(r=>r.ok?r.json():[]).catch(()=>[])]);
     return {data:d,hist:h};
   }catch{ return demoData(); }
+}
+
+
+const CHAPTERS=[
+ {n:1,title:"Just Like Paradise",m:["Prologue","Gone Fishing","Gear Up","Lab Fees","Just a Scratch","Unwanted Attention","Pipework","Hey Arnold!","Island Dreams","Feng Shui","Coming Home","Clean Up After Donnie","Buck Me","Down to Earth","Day Release","Clear Skies","Swamped","Don Gone","Recalibration","Tourist Trap","Home Sweet Home","Discharge Time"]},
+ {n:2,title:"Paradise Lost",m:["What's in the Bag?","Just Moved In","Girls' Trip","Moses","Ambulance Chaser","Slam Dunk","Daily Driver","Breakfast Run","Coffee Break","Afternoon Delight","Checking Out"]},
+ {n:3,title:"T**s Ass Drug Money",m:["Welcome to Vice City","Dealer's Choice|J","Dubious Provenance","Mami Knows Best|L","Here, Kitty Kitty|J","Encrypted Hard Drive","Boobie Time|J","Meet the Heders","Yasmani's Jewelry Jobs","Car Service|L","Top Billing","First Impressions","Crosstown Traffic / Meet Karim","Credit Check","Clonin' Keys, Makin' Gs","Ride or Die|J","Sinfrontera National Bank","Security Expert","Caught Slipping","Company Property","Safe Word","The Missing Link|L","Cooties","Hidden Charges","Bricked Up","South Leonida Real Estate|L","The Cartel Heist|Heist"]},
+ {n:4,title:"Vice City, Baby!",m:["Ocean Beach","Another Life","Pool Day","Company Cars","Lawyer Up","It's a Date!","Party Hard","Photo/Shoot","Making Gainz|L","Blood Sweat and Gear|L","Too Much Baggage|J","Watch It|J","Amateur Hour|L","Cash Injections|L","Dirty Work","Adventures in Babysitting|J","Fresh Evidence|J","Child's Play","Power Play|L","Close Surveillance|J","Delivery Method|J","Team Building|L","Fully Catered","Headliners","VCIA Takedown|Heist","Tie Up Loose Ends","Sunset","Starting From Zero"]},
+ {n:5,title:"Top of the World, Ma",m:["Bird in the Hand","Taking Liberties","Doggie Bag","VC Baby","Operation Savage Glory","Honest Abe","Unfinished Business","Protective Custody","The End of the Road"]}
+];
+const norm=(x)=>String(x).toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9']/g,"");
+let ticks={};try{ticks=JSON.parse(localStorage.getItem("vt-ticks")||"{}")}catch{}
+const saveTicks=()=>{try{localStorage.setItem("vt-ticks",JSON.stringify(ticks))}catch{}};
+let spoil={};
+function storyState(){
+  const tr=(D.gta&&D.gta.trophies)||[];
+  const chapDone={}, missionTrophy={};
+  for(const t of tr){
+    const d=t.detail||"";
+    let m=d.match(/^Complete Chapter (\d)\.?$/i); if(m){ if(t.earned) chapDone[+m[1]]=t; continue; }
+    if(/final mission\.?$/i.test(d)&&!/for /i.test(d)){ if(t.earned) chapDone[5]=t; continue; }
+    m=d.match(/^Complete (.+?)\.?$/i); if(m) missionTrophy[norm(m[1])]=t;
+  }
+  return CHAPTERS.map((c,ci)=>{
+    const done=!!chapDone[c.n];
+    const ms=c.m.map(x=>{const [name,tag]=x.split("|");return {name,tag,trophy:missionTrophy[norm(name)]||null}});
+    let lastIdx=-1; ms.forEach((x,i)=>{if(x.trophy&&x.trophy.earned) lastIdx=i});
+    ms.forEach((x,i)=>{x.ok=done||i<=lastIdx||!!ticks[c.n+":"+x.name];x.auto=done||i<=lastIdx});
+    return {...c,done,ms};
+  });
+}
+function renderStory(){
+  const st=storyState();
+  const cur=st.find(c=>!c.done);
+  const total=st.reduce((a,c)=>a+c.ms.length,0), ok=st.reduce((a,c)=>a+c.ms.filter(x=>x.ok).length,0);
+  $("#st-title").textContent=cur?"Kapitel "+cur.n:"Story durch! 👑";
+  $("#st-sub").textContent=cur?cur.title+" · "+st.filter(c=>c.done).length+" von 5 Kapiteln geschafft":"Alle 5 Kapitel abgeschlossen";
+  const pct=Math.round(ok/total*100);
+  setTimeout(()=>{$("#st-bar").style.width=pct+"%"},60);
+  $("#st-count").textContent=ok+" von ~"+total+" Missionen";
+  $("#st-pct").textContent=pct+" %";
+  $("#chapters").innerHTML=st.map(c=>{
+    const isCur=cur&&c.n===cur.n, future=!c.done&&!isCur;
+    const n=c.ms.filter(x=>x.ok).length;
+    const badge=c.done?'<span class="badge b-done">✓ Geschafft</span>':isCur?'<span class="badge b-cur">Jetzt</span>':'<span class="badge b-next">Kommt noch</span>';
+    const showNames=!future||spoil[c.n];
+    const items=showNames?c.ms.map((x,i)=>`<div class="mi ${x.ok?"ok":""}" ${isCur&&!x.auto?`data-tick="${c.n}:${esc(x.name)}"`:""}><div class="ck">${x.ok?"✓":""}</div><span class="n">${i+1}. ${esc(x.name)}</span>${x.trophy?`<span class="tr" title="Trophäe">🏆</span>`:""}${x.tag?`<span class="tag" style="${x.trophy?"margin-left:6px":""}">${x.tag==="Heist"?"Heist":x.tag==="J"?"Jason":"Lucia"}</span>`:""}</div>`).join(""):`<button class="spoil" data-spoil="${c.n}">🙈 ${c.ms.length} Missionen – Namen anzeigen (Spoiler)</button>`;
+    return `<div class="chap ${c.done?"done":""} ${isCur?"cur open":""}" data-chap="${c.n}"><div class="chead"><div class="cnum">${c.n}</div><div class="t"><b>${future&&!spoil[c.n]?"Kapitel "+c.n:esc(c.title)}</b><small>${c.done?c.ms.length+" Missionen":isCur?n+" von "+c.ms.length+" Missionen":c.ms.length+" Missionen"}</small></div>${badge}</div><div class="mlist">${items}</div></div>`;
+  }).join("");
 }
 
 let D,H,filter="all";
@@ -228,6 +315,7 @@ function render(){
   const chips=[["all","Alle"],["open","Offen"],["done","Geschafft"],["platinum","Platin"],["gold","Gold"],["silver","Silber"],["bronze","Bronze"],["rare","Selten"]];
   $("#chips").innerHTML=chips.map(([k,l])=>`<button class="chip ${k===filter?"on":""}" data-f="${k}">${l}</button>`).join("");
   list();
+  renderStory();
   // Spiele
   const gs=[...(D.games||[])].sort((a,b)=>new Date(b.lastPlayed||0)-new Date(a.lastPlayed||0));
   $("#gcount").textContent=gs.length+" Spiele";
@@ -276,6 +364,9 @@ document.addEventListener("click",e=>{
   const nb=e.target.closest("nav button");
   if(nb){document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("on",b===nb));document.querySelectorAll(".view").forEach(v=>v.classList.toggle("on",v.id==="v-"+nb.dataset.v));scrollTo({top:0,behavior:"smooth"});return}
   const c=e.target.closest(".chip"); if(c){filter=c.dataset.f;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("on",x===c));list();return}
+  const sp=e.target.closest("[data-spoil]"); if(sp){spoil[sp.dataset.spoil]=1;renderStory();document.querySelector(`[data-chap="${sp.dataset.spoil}"]`).classList.add("open");return}
+  const tk=e.target.closest("[data-tick]"); if(tk){const k=tk.dataset.tick;ticks[k]=!ticks[k];if(!ticks[k])delete ticks[k];saveTicks();renderStory();return}
+  const ch=e.target.closest(".chead"); if(ch){ch.parentNode.classList.toggle("open");return}
   const t=e.target.closest("[data-id]"); if(t){openSheet(t.dataset.id);return}
   if(e.target.id==="sheet") $("#sheet").classList.remove("on");
 });
