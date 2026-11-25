@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-25T02:24:58.698Z",
+ "updated": "2026-11-25T12:50:32.886Z",
  "profile": {
   "presence": {
    "online": false,
@@ -40,9 +40,9 @@
    "platinum": 1
   },
   "lastPlayed": "2026-11-24T20:34:23Z",
-  "minutes": 2425,
+  "minutes": 2595,
   "firstPlayed": "2026-11-19T13:49:41.290000Z",
-  "lastPlayedGame": "2026-11-24T19:25:08.760000Z",
+  "lastPlayedGame": "2026-11-24T22:31:49.480000Z",
   "trophies": [
    {
     "id": 0,
@@ -66,7 +66,7 @@
     "hidden": true,
     "earned": true,
     "earnedAt": "2026-11-18T23:40:35Z",
-    "rarity": 98.2,
+    "rarity": 98.1,
     "progress": null,
     "target": null
    },
@@ -79,7 +79,7 @@
     "hidden": true,
     "earned": true,
     "earnedAt": "2026-11-20T10:22:10Z",
-    "rarity": 48.3,
+    "rarity": 49.2,
     "progress": null,
     "target": null
    },
@@ -92,7 +92,7 @@
     "hidden": true,
     "earned": true,
     "earnedAt": "2026-11-21T17:09:25Z",
-    "rarity": 29.5,
+    "rarity": 30.6,
     "progress": null,
     "target": null
    },
@@ -105,7 +105,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 4.7,
+    "rarity": 5.1,
     "progress": null,
     "target": null
    },
@@ -118,7 +118,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 0.7,
+    "rarity": 0.8,
     "progress": null,
     "target": null
    },
@@ -131,7 +131,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 0.4,
+    "rarity": 0.5,
     "progress": null,
     "target": null
    },
@@ -144,7 +144,7 @@
     "hidden": true,
     "earned": true,
     "earnedAt": "2026-11-20T17:28:29Z",
-    "rarity": 38.5,
+    "rarity": 39.5,
     "progress": null,
     "target": null
    },
@@ -157,7 +157,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 4.7,
+    "rarity": 5.2,
     "progress": null,
     "target": null
    },
@@ -170,7 +170,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 1.5,
+    "rarity": 1.8,
     "progress": null,
     "target": null
    },
@@ -183,7 +183,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 1,
+    "rarity": 1.1,
     "progress": null,
     "target": null
    },
@@ -196,7 +196,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 0.9,
+    "rarity": 1.1,
     "progress": null,
     "target": null
    },
@@ -209,7 +209,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 0.6,
+    "rarity": 0.7,
     "progress": null,
     "target": null
    },
@@ -300,7 +300,7 @@
     "hidden": false,
     "earned": false,
     "earnedAt": null,
-    "rarity": 15.1,
+    "rarity": 15.3,
     "progress": null,
     "target": null
    },
@@ -326,7 +326,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 1.5,
+    "rarity": 1.7,
     "progress": null,
     "target": null
    },
@@ -339,7 +339,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 2,
+    "rarity": 2.1,
     "progress": null,
     "target": null
    },
@@ -352,7 +352,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 1.4,
+    "rarity": 1.6,
     "progress": null,
     "target": null
    },
@@ -378,7 +378,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 0.1,
+    "rarity": 0.2,
     "progress": null,
     "target": null
    },
@@ -391,7 +391,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 0.3,
+    "rarity": 0.4,
     "progress": null,
     "target": null
    },
@@ -469,7 +469,7 @@
     "hidden": false,
     "earned": false,
     "earnedAt": null,
-    "rarity": 8.5,
+    "rarity": 9,
     "progress": null,
     "target": null
    },
@@ -482,7 +482,7 @@
     "hidden": false,
     "earned": false,
     "earnedAt": null,
-    "rarity": 0.4,
+    "rarity": 0.5,
     "progress": null,
     "target": null
    },
@@ -495,7 +495,7 @@
     "hidden": false,
     "earned": true,
     "earnedAt": "2026-11-20T09:40:42Z",
-    "rarity": 24.6,
+    "rarity": 25.8,
     "progress": null,
     "target": "100"
    },
@@ -547,7 +547,7 @@
     "hidden": false,
     "earned": true,
     "earnedAt": "2026-11-22T22:06:29Z",
-    "rarity": 1.7,
+    "rarity": 1.9,
     "progress": null,
     "target": null
    },
@@ -573,7 +573,7 @@
     "hidden": false,
     "earned": false,
     "earnedAt": null,
-    "rarity": 0.4,
+    "rarity": 0.5,
     "progress": null,
     "target": null
    },
@@ -599,7 +599,7 @@
     "hidden": false,
     "earned": false,
     "earnedAt": null,
-    "rarity": 0.1,
+    "rarity": 0.2,
     "progress": "3",
     "target": "9"
    },
@@ -625,7 +625,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 0.8,
+    "rarity": 1,
     "progress": null,
     "target": null
    },
@@ -638,7 +638,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 13,
+    "rarity": 13.5,
     "progress": null,
     "target": null
    },
@@ -651,7 +651,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 1.9,
+    "rarity": 2.2,
     "progress": null,
     "target": null
    },
@@ -664,7 +664,7 @@
     "hidden": true,
     "earned": true,
     "earnedAt": "2026-11-21T22:30:35Z",
-    "rarity": 0.5,
+    "rarity": 0.6,
     "progress": null,
     "target": "500"
    },
@@ -690,7 +690,7 @@
     "hidden": true,
     "earned": false,
     "earnedAt": null,
-    "rarity": 6.4,
+    "rarity": 6.7,
     "progress": null,
     "target": null
    },
@@ -716,7 +716,7 @@
     "hidden": false,
     "earned": false,
     "earnedAt": null,
-    "rarity": 0.6,
+    "rarity": 0.7,
     "progress": "6000",
     "target": "250000"
    },
@@ -729,7 +729,7 @@
     "hidden": false,
     "earned": true,
     "earnedAt": "2026-11-22T23:07:18Z",
-    "rarity": 8.6,
+    "rarity": 9.3,
     "progress": null,
     "target": "100000"
    },
@@ -742,7 +742,7 @@
     "hidden": false,
     "earned": false,
     "earnedAt": null,
-    "rarity": 0.4,
+    "rarity": 0.5,
     "progress": "0",
     "target": "8"
    },
@@ -755,7 +755,7 @@
     "hidden": false,
     "earned": false,
     "earnedAt": null,
-    "rarity": 0.6,
+    "rarity": 0.8,
     "progress": "5",
     "target": "10"
    }
@@ -782,9 +782,9 @@
     "platinum": 1
    },
    "lastPlayed": "2026-11-24T20:34:23Z",
-   "minutes": 2425,
+   "minutes": 2595,
    "firstPlayed": "2026-11-19T13:49:41.290000Z",
-   "lastPlayedGame": "2026-11-24T19:25:08.760000Z"
+   "lastPlayedGame": "2026-11-24T22:31:49.480000Z"
   },
   {
    "id": "NPWR55017_00",
